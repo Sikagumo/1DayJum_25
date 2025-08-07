@@ -1,3 +1,4 @@
+#include"../Block/Lane.h"
 #include"SelectLogicBase.h"
 #include"CharacterBase.h"
 #include "UnitBase.h"
@@ -21,6 +22,7 @@ void UnitBase::Update(void)
 void UnitBase::Draw(void)
 {
 	character_->Draw();
+	blockLane_->Draw();
 }
 
 void UnitBase::Release(void)

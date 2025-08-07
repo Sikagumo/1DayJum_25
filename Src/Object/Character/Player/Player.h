@@ -4,6 +4,6 @@ class Player :
     public UnitBase
 {
 public:
-    void Init(const VECTOR _pos)override;
+    void Init(const int _playerNum)override;
 };
 

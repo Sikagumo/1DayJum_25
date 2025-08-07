@@ -83,6 +83,8 @@ public:
 
 	//プレイヤー数
 	void SetPlayerNum(int _num);
+	const int GetPlayerNum(void)const { return playerNum_; }
+
 private:
 
 	// 静的インスタンス

@@ -2,9 +2,10 @@
 #include"../Manager/Generic/Resource.h"
 #include"../Manager/Generic/ResourceManager.h"
 #include"../Manager/GameSystem/Timer.h"
+#include"../Manager/Generic/SceneManager.h"
 #include"../Manager/GameSystem/CharacterManager.h"
 #include "Game.h"
-#include "../Object/Block/BlockController.h"
+#include "../Object/Block/RandomBlock.h"
 
 Game::Game(void)
 {
@@ -24,13 +25,14 @@ void Game::Init(void)
 
 	//キャラクター生成
 	charaMng_ = std::make_unique<CharacterManager>();
-	charaMng_->Init(1);	//引数はSceneManagerよりユーザ人数を取得(マージ後)
+	charaMng_->Init(SceneManager::GetInstance().GetPlayerNum());	//引数はSceneManagerよりユーザ人数を取得(マージ後)
 
 	//タイマーの生成
 	Timer::CreateInstance();
 
 	//ブロック生成
-	blockController_ = std::make_unique<BlockController>();
+	randomBlockCntl_ = std::make_unique<RandomBlock>();
+	randomBlockCntl_->Init();
 
 	update_ = &Game::UpdateStartTurnFaze;
 }
@@ -43,7 +45,6 @@ void Game::Update(void)
 
 void Game::Draw(void)
 {
-	blockController_->Draw();
 	DrawString(0, 0, "GameScene", 0xffffff, false);
 
 	//キャラクター

@@ -3,7 +3,7 @@
 #include<memory>
 
 class CharacterManager;
-class BlockController;
+class RandomBlock;
 
 class Game :
     public SceneBase
@@ -26,6 +26,6 @@ private:
 
     Update_f update_;                                   //更新を管理する関数ポインタ
     std::unique_ptr<CharacterManager>charaMng_;         //キャラクターのマネージャ
-    std::unique_ptr<BlockController> blockController_;  //ブロック
+    std::unique_ptr<RandomBlock> randomBlockCntl_;  //ブロック
 };
 

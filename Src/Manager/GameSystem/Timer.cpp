@@ -59,14 +59,6 @@ void Timer::Draw(void)const
 
     //êîéöÇÃï`âÊ
     ui.Draw("Numbers");
-
-    //DrawRotaGraph(
-    //    Application::SCREEN_SIZE_X / 2 - ResourceManager::NUMBERS_SIZE / 2 * NUMBERS_RATE
-    //    , TIMER_BACK_SIZE_Y
-    //    , NUMBERS_RATE
-    //    , 0.0
-    //    , numImgs_[(TIME_LIMIT.second - static_cast<int>(cnt_)) / ResourceManager::NUMBERS_NUM_X * ResourceManager::NUMBERS_NUM_Y]
-    //    , true);
 }
 
 void Timer::Destroy(void)

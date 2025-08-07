@@ -6,20 +6,32 @@ class UnitBase;
 class CharacterManager
 {
 public:
+	enum class CHRACTER_STATE {
+		NOMAL
+		,SELECT
+		,MOVE
+	};
+
 	static constexpr int CHARACTER_NUM = 4;
 
 	CharacterManager(void);
 	~CharacterManager(void);
 
 	void Init(const int _userNum);
-	void Update(void);
+	bool Update(void);
 	void Draw(void);
 	void Release(void);
 
 private:
-	std::unique_ptr<UnitBase>characteres_[CHARACTER_NUM];
+	//各種状態での更新完了の判定処理
+	bool FinishUpdateSelect(void);
+	bool FinishUpdateMove(void);
+
+	using FinishUpdate_f = bool(CharacterManager::*)(void);
+	FinishUpdate_f isFinishUpdate_;
+
+	std::unique_ptr<UnitBase>characteres_[CHARACTER_NUM];	//キャラクターたち
 
 	int selectPlayerNum_;	//0~3
-	bool selectTurnEnd_;
 };
 

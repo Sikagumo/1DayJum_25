@@ -35,11 +35,14 @@ void CharacterManager::Init(const int _userNum)
 	}
 }
 
-void CharacterManager::Update(void)
+bool CharacterManager::Update(void)
 {
 	for (int i = 0; i < CHARACTER_NUM; i++) {
 		characteres_[i]->Update();
 
+		if ((this->*isFinishUpdate_)()) {
+			return true;
+		}
 
 		//現在入力を受け付けているキャラクターの場合
 		if (i == selectPlayerNum_) {
@@ -54,11 +57,13 @@ void CharacterManager::Update(void)
 					characteres_[nextPlayer]->ChangeSelectFlag(true);
 				}
 				else {
-					selectTurnEnd_ = true;
+					return true;
 				}
 			}
 		}
 	}
+
+	return false;
 }
 
 void CharacterManager::Draw(void)

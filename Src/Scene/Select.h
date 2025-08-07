@@ -1,11 +1,10 @@
 #pragma once
 #include "SceneBase.h"
-class Title :
-    public SceneBase
+class Select : public SceneBase
 {
 public:
-    Title(void);
-    ~Title(void)override;
+    Select(void);
+    ~Select(void)override;
 
     void Init(void)override;
     void Update(void)override;
@@ -13,6 +12,7 @@ public:
     void Release(void)override;
 
 private:
-    
+    int playerNum_;
+    void ChangePlayerNum();
 };
 

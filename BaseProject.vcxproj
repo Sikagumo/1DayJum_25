@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Scene\Select.cpp" />
     <ClCompile Include="Src\Scene\Game.cpp" />
     <ClCompile Include="Src\Scene\GameClear.cpp" />
     <ClCompile Include="Src\Application.cpp" />
@@ -40,6 +41,7 @@
     <ClCompile Include="Src\Scene\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Scene\Select.h" />
     <ClInclude Include="Src\Scene\Game.h" />
     <ClInclude Include="Src\Scene\GameClear.h" />
     <ClInclude Include="Src\Application.h" />

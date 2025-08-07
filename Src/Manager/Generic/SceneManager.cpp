@@ -5,6 +5,7 @@
 
 #include "../../Scene/SceneBase.h"
 #include"../../Scene/Title.h"
+#include"../../Scene/Select.h"
 
 #include"../Decoration/EffectManager.h"
 #include"../Decoration/SoundManager.h"
@@ -62,7 +63,7 @@ void SceneManager::Init(void)
 	Init3D();
 
 	// 初期シーンの設定
-	ChangeScene(std::make_shared<Title>());
+	ChangeScene(std::make_shared<Select>());
 
 	// メインスクリーン
 	mainScreen_ = MakeScreen(
@@ -286,6 +287,11 @@ void SceneManager::SwitchController(void)
 	}
 }
 
+void SceneManager::SetPlayerNum(int _num)
+{
+	playerNum_ = _num;
+}
+
 SceneManager::SceneManager(void)
 {
 
@@ -305,6 +311,7 @@ SceneManager::SceneManager(void)
 
 	updateSpeedRate_ = 1.0f;
 
+	playerNum_ = -1;
 }
 
 void SceneManager::ResetDeltaTime(void)

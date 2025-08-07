@@ -38,28 +38,12 @@ void CharacterManager::Init(const int _userNum)
 bool CharacterManager::Update(void)
 {
 	for (int i = 0; i < CHARACTER_NUM; i++) {
+		//キャラクター更新
 		characteres_[i]->Update();
 
-		if ((this->*isFinishUpdate_)()) {
+		//現在のフェーズの更新が終了していたら
+		if ((this->*isFinishUpdate_)(i)) {
 			return true;
-		}
-
-		//現在入力を受け付けているキャラクターの場合
-		if (i == selectPlayerNum_) {
-			//選択が終了したら
-			if (characteres_[i]->IsSelect()) {
-				//自身を選択可能状態を解除
-				characteres_[i]->ChangeSelectFlag(false);
-
-				//次のプレイヤーの選択を可能に
-				int nextPlayer = i + 1;
-				if (nextPlayer < CHARACTER_NUM) {
-					characteres_[nextPlayer]->ChangeSelectFlag(true);
-				}
-				else {
-					return true;
-				}
-			}
 		}
 	}
 
@@ -75,4 +59,34 @@ void CharacterManager::Draw(void)
 
 void CharacterManager::Release(void)
 {
+}
+
+bool CharacterManager::FinishUpdateSelect(const int _charaNum)
+{
+	//現在入力を受け付けているキャラクターの場合
+	if (_charaNum == selectPlayerNum_) {
+		//選択が終了したら
+		if (characteres_[_charaNum]->IsSelect()) {
+			//自身を選択可能状態を解除
+			characteres_[_charaNum]->ChangeSelectFlag(false);
+
+			//次のプレイヤー番号
+			int nextPlayer = _charaNum + 1;
+
+			if (nextPlayer < CHARACTER_NUM) {
+				//次のプレイヤーの選択を可能に
+				characteres_[nextPlayer]->ChangeSelectFlag(true);
+			}
+			else {
+				//最後のプレイヤーだったら終了
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+bool CharacterManager::FinishUpdateMove(const int _charaNum)
+{
+	//全キャラクターの移動が完了したかの判定
 }

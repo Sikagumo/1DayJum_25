@@ -24,10 +24,10 @@ public:
 
 private:
 	//各種状態での更新完了の判定処理
-	bool FinishUpdateSelect(void);
-	bool FinishUpdateMove(void);
+	bool FinishUpdateSelect(const int _charaNum);	//選択フェーズでの終了処理
+	bool FinishUpdateMove(const int _charaNum);		//反映の終了処理
 
-	using FinishUpdate_f = bool(CharacterManager::*)(void);
+	using FinishUpdate_f = bool(CharacterManager::*)(const int _charaNum);
 	FinishUpdate_f isFinishUpdate_;
 
 	std::unique_ptr<UnitBase>characteres_[CHARACTER_NUM];	//キャラクターたち

@@ -13,7 +13,7 @@ public:
 	UnitBase(void);
 	virtual ~UnitBase(void);
 
-	virtual void Init(const VECTOR _pos) = 0;
+	virtual void Init(const int _playerNum) = 0;
 	void Update(void);
 	void Draw(void);
 	void Release(void);

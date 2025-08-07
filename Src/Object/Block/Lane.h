@@ -10,10 +10,10 @@ public:
 	static constexpr int LANE_SIZE_X = 12;
 	static constexpr int LANE_SIZE_Y = 3;
 
-	static constexpr int LANE_DIFF_Y = BLOCK_SIZE_Y * (LANE_SIZE_Y + 2);
+	static constexpr int LANE_DIFF_Y = BLOCK_SIZE_Y * (LANE_SIZE_Y + 1);
 
-	static constexpr float LANE_START_POS_X = 80.0f;
-	static constexpr float LANE_START_POS_Y = 80.0f;
+	static constexpr float LANE_START_POS_X = 150.0f;
+	static constexpr float LANE_START_POS_Y = 200.0f;
 
 	Lane(void);
 	~Lane(void);
@@ -24,6 +24,7 @@ public:
 	//ë´èÍÇÃí«â¡
 	bool AddBlockToLane(const AddBlock _addBlock);
 
+	VECTOR GetStartPos(void)const { return laneStartPos_; }
 private:
 	bool IsAdd(const AddBlock _addBlock);
 

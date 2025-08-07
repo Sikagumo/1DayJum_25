@@ -31,7 +31,7 @@ void CharacterManager::Init(const int _userNum)
 		}
 
 		//‰Šú‰»
-		characteres_[i]->Init(VECTOR{ 0,posY,0 });
+		characteres_[i]->Init(i);
 		//·•ª‘‰Á
 		posY += POSITION_Y_DIFF;
 	}

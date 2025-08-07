@@ -22,6 +22,7 @@ void UnitBase::Update(void)
 void UnitBase::Draw(void)
 {
 	character_->Draw();
+	blockLane_->Draw();
 }
 
 void UnitBase::Release(void)

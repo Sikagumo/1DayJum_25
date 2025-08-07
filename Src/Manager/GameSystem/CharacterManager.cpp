@@ -86,7 +86,9 @@ bool CharacterManager::FinishUpdateSelect(const int _charaNum)
 	return false;
 }
 
-bool CharacterManager::FinishUpdateMove(const int _charaNum)
+bool CharacterManager::FinishUpdateEffect(const int _charaNum)
 {
-	//全キャラクターの移動が完了したかの判定
+	//全キャラクターの反映が完了したかの判定
+
+	return false;
 }

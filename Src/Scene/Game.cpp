@@ -15,6 +15,8 @@ void Game::Init(void)
 	//キャラクター生成
 	charaMng_ = std::make_unique<CharacterManager>();
 	charaMng_->Init(1);	//引数はSceneManagerよりユーザ人数を取得(マージ後)
+
+	update_ = &Game::UpdateStartTurnFaze;
 }
 
 void Game::Update(void)

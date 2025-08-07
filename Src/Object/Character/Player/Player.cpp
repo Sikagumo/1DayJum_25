@@ -2,7 +2,7 @@
 #include"PlayerLogic.h"
 #include "Player.h"
 
-void Player::Init(const VECTOR& _pos)
+void Player::Init(const VECTOR _pos)
 {
 	//キャラクターの生成
 	character_ = std::make_unique<PlayerCharacter>();

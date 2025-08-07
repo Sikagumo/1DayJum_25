@@ -9,7 +9,7 @@ public:
 	enum class CHRACTER_STATE {
 		NOMAL
 		,SELECT
-		,MOVE
+		,EFFECT
 	};
 
 	static constexpr int CHARACTER_NUM = 4;
@@ -25,7 +25,7 @@ public:
 private:
 	//各種状態での更新完了の判定処理
 	bool FinishUpdateSelect(const int _charaNum);	//選択フェーズでの終了処理
-	bool FinishUpdateMove(const int _charaNum);		//反映の終了処理
+	bool FinishUpdateEffect(const int _charaNum);		//反映の終了処理
 
 	using FinishUpdate_f = bool(CharacterManager::*)(const int _charaNum);
 	FinishUpdate_f isFinishUpdate_;

@@ -5,6 +5,8 @@
 UnitBase::UnitBase(void)
 {
 	canSelect_ = false;
+	update_ = &UnitBase::UpdateNomal;
+	updateEffect_ = &UnitBase::UpdateEffectOfBlock;
 }
 
 UnitBase::~UnitBase(void)
@@ -13,10 +15,7 @@ UnitBase::~UnitBase(void)
 
 void UnitBase::Update(void)
 {
-	character_->Update();
-	if (canSelect_) {
-		logic_->UpdateLogic();
-	}
+	(this->*update_)();
 }
 
 void UnitBase::Draw(void)
@@ -51,4 +50,33 @@ void UnitBase::ResetSelect(void)
 void UnitBase::ChangeSelectFlag(const bool _flag)
 {
 	canSelect_ = _flag;
+}
+
+void UnitBase::UpdateNomal(void)
+{
+	character_->Update();
+}
+
+void UnitBase::UpdateSelect(void)
+{
+	character_->Update();
+	//選択ロジックの更新
+	if (canSelect_) {
+		logic_->UpdateLogic();
+	}
+}
+
+void UnitBase::UpdateEffect(void)
+{
+	character_->Update();
+	//反映の更新
+	(this->*updateEffect_)();
+}
+
+void UnitBase::UpdateEffectOfBlock(void)
+{
+}
+
+void UnitBase::UpdateEffectOfMove(void)
+{
 }

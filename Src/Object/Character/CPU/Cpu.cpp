@@ -2,7 +2,7 @@
 #include"CpuLogic.h"
 #include "Cpu.h"
 
-void Cpu::Init(const VECTOR& _pos)
+void Cpu::Init(const VECTOR _pos)
 {
 	//キャラクターの生成
 	character_ = std::make_unique<CpuCharacter>();

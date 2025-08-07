@@ -5,12 +5,47 @@
 void RandomBlock::Init(void)
 {
 	CreateShape();
+	drawStartPos_ = { 800.0f,80.0f,0.0f };
+}
+
+void RandomBlock::Draw(void)
+{
+	int posX = drawStartPos_.x, posY = drawStartPos_.y;
+	int diffY = BLOCK_SIZE_X * (ADD_BLOCK_SIZE_Y + 1);
+	int cnt = 0;
+
+	int color= 0xffffff;
+
+	for (auto& select : useBlocks_) {
+		for (int x = 0; x < ADD_BLOCK_SIZE_X; x++) {
+			for (int y = 0; y < ADD_BLOCK_SIZE_Y; y++) {
+				//ƒuƒƒbƒN‚ª‚ ‚é‚È‚çÔ‚É
+				color = 0xffffff;
+				if (select.info[y][x] == true)color = 0xff0000;
+
+				DrawCircle(posX, posY, 4, color);
+				posY += BLOCK_SIZE_Y;
+			}
+			posY = drawStartPos_.y + diffY * cnt;
+			posX += BLOCK_SIZE_X;
+		}
+		cnt++;
+		posX = drawStartPos_.x;
+		posY = drawStartPos_.y + diffY * cnt;
+	}
 }
 
 BlockBase::AddBlock RandomBlock::GetRandomShape(void)
 {
 	SELECT_TYPE createType = static_cast<SELECT_TYPE>(GetRand(static_cast<int>(SELECT_TYPE::MAX)));
 	return blockShapes_[createType];
+}
+
+void RandomBlock::CreateSelect(void)
+{
+	for (int i = 0; i < SELECT_NUM; i++) {
+		useBlocks_[i] = GetRandomShape();
+	}
 }
 
 void RandomBlock::CreateShape(void)

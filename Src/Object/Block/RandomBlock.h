@@ -30,12 +30,21 @@ public:
 
 	void Init(void);
 
+	void Draw(void);
+
 	AddBlock GetRandomShape(void);
+
+	void CreateSelect(void);
+
+	AddBlock GetSelectBlock(const int _num)const { return useBlocks_[_num]; }
 
 private:
 	void CreateShape(void);
 
 	std::map<SELECT_TYPE, AddBlock> blockShapes_;
+
+	AddBlock useBlocks_[SELECT_NUM];
+	VECTOR drawStartPos_;
 
 public:
 	static constexpr bool SQUARE_TOP[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {

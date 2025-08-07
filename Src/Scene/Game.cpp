@@ -22,6 +22,7 @@ void Game::Init(void)
 	//ブロック生成
 	randomBlockCntl_ = std::make_unique<RandomBlock>();
 	randomBlockCntl_->Init();
+	randomBlockCntl_->CreateSelect();
 
 	update_ = &Game::UpdateStartTurnFaze;
 }
@@ -38,6 +39,8 @@ void Game::Draw(void)
 
 	//キャラクター
 	charaMng_->Draw();
+	randomBlockCntl_->Draw();
+
 }
 
 void Game::Release(void)

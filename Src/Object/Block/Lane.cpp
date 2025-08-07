@@ -33,6 +33,7 @@ void Lane::Draw(void)
 	{
 		for (int y = 0; y < LANE_SIZE_Y; ++y)
 		{
+			color = 0xffffff;
 			//”z’u‚³‚ê‚Ä‚¢‚½‚çÔF‚É
 			if (lane_[x][y])color = 0xff0000;
 			

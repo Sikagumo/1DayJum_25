@@ -19,6 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Manager\GameSystem\CharacterManager.cpp" />
+    <ClCompile Include="Src\Object\Character\CPU\Cpu.cpp" />
+    <ClCompile Include="Src\Object\Character\Player\Player.cpp" />
+    <ClCompile Include="Src\Object\Character\CPU\CpuLogic.cpp" />
+    <ClCompile Include="Src\Object\Character\Player\PlayerLogic.cpp" />
+    <ClCompile Include="Src\Object\Character\SelectLogicBase.cpp" />
+    <ClCompile Include="Src\Object\Character\CPU\CpuCharacter.cpp" />
+    <ClCompile Include="Src\Object\Character\Player\PlayerCharacter.cpp" />
+    <ClCompile Include="Src\Object\Character\CharacterBase.cpp" />
     <ClCompile Include="Src\Object\Block\Block.cpp" />
     <ClCompile Include="Src\Object\Block\BlockController.cpp" />
     <ClCompile Include="Src\Scene\Select.cpp" />
@@ -41,9 +50,19 @@
     <ClCompile Include="Src\Scene\SceneBase.cpp" />
     <ClCompile Include="Src\Utility\Utility.cpp" />
     <ClCompile Include="Src\Scene\Title.cpp" />
+    <ClCompile Include="Src\Object\Character\UnitBase.cpp" />
     <ClCompile Include="Src\Manager\Generic\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Manager\GameSystem\CharacterManager.h" />
+    <ClInclude Include="Src\Object\Character\CPU\Cpu.h" />
+    <ClInclude Include="Src\Object\Character\Player\Player.h" />
+    <ClInclude Include="Src\Object\Character\CPU\CpuLogic.h" />
+    <ClInclude Include="Src\Object\Character\Player\PlayerLogic.h" />
+    <ClInclude Include="Src\Object\Character\SelectLogicBase.h" />
+    <ClInclude Include="Src\Object\Character\CPU\CpuCharacter.h" />
+    <ClInclude Include="Src\Object\Character\Player\PlayerCharacter.h" />
+    <ClInclude Include="Src\Object\Character\CharacterBase.h" />
     <ClInclude Include="Src\Object\Block\Block.h" />
     <ClInclude Include="Src\Object\Block\BlockController.h" />
     <ClInclude Include="Src\Scene\Select.h" />
@@ -66,6 +85,7 @@
     <ClInclude Include="Src\Scene\SceneBase.h" />
     <ClInclude Include="Src\Utility\Utility.h" />
     <ClInclude Include="Src\Scene\Title.h" />
+    <ClInclude Include="Src\Object\Character\UnitBase.h" />
     <ClInclude Include="Src\Manager\Generic\Timer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

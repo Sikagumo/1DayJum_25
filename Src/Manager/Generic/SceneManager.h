@@ -54,10 +54,13 @@ public:
 	// リソースの破棄
 	void Destroy(void);
 
+	//シーン遷移
 	void ChangeScene(std::shared_ptr<SceneBase>_scene);
 	void PushScene(std::shared_ptr<SceneBase>_scene);
 	void PopScene(void);
 	void JumpScene(std::shared_ptr<SceneBase>_scene);
+
+	void DoChangeScene(void);
 
 	// シーンIDの取得
 	SCENE_ID GetSceneID(void);
@@ -100,6 +103,7 @@ private:
 
 	// 各種シーン
 	std::vector<std::shared_ptr<SceneBase>> scenes_;	//シーン格納
+	std::shared_ptr<SceneBase>nextScene_;
 
 	// シーン遷移中判定
 	bool isSceneChanging_;

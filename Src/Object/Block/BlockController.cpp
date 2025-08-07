@@ -27,20 +27,28 @@ void BlockController::Draw(void)
 	posX = OFFSET_X;
 	posY = OFFSET_Y;
 
-	for (int i = 0; i < 4; ++i)
+	int posYLaneDiff = 0;
+
+	int LaneCol[4] = { 0xffffff,0xff0000,0x00ff00,0x0000ff };
+
+
+	for (int i = 0; i < 4; i++)
 	{
 		for (int x = 0; x < Block::LANE_MAX_X; ++x)
 		{
 			for (int y = 0; y < Block::LANE_MAX_Y; ++y)
 			{
-				DrawGraph(posX, posY, blockGraph_, true);
-				posX += IMAGE_SIZE_Y;
+				//DrawGraph(posX, posY, blockGraph_, true);
+				DrawCircle(posX, posY, 4, LaneCol[i]);
+				posY += 20;
 			}
 
-			posX = OFFSET_X;
-			posY += IMAGE_SIZE_Y;
+			posY = OFFSET_Y + posYLaneDiff;
+			posX += 20;
 		}
-		posY += SPACE_Y;
+		posX = OFFSET_X;
+		posYLaneDiff += SPACE_Y;
+		posY = OFFSET_Y + posYLaneDiff;
 	}
 }
 

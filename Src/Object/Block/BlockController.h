@@ -35,13 +35,13 @@ public:
 	static constexpr int OFFSET_X = 100;
 
 	// ‰¡’²®’l
-	static constexpr int OFFSET_Y = 200;
+	static constexpr int OFFSET_Y = 50;
 
 	static constexpr int IMAGE_SIZE_X = 100;
 	static constexpr int IMAGE_SIZE_Y = 100;
 	
 	// ƒŒ[ƒ“‚ÌŠÔŠu
-	static constexpr int SPACE_Y = 75;
+	static constexpr int SPACE_Y = 100;
 
 	// ‘I‘ğ”
 	static constexpr int SELECT_NUM = 4;

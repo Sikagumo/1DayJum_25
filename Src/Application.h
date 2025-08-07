@@ -10,6 +10,8 @@ public:
 	static constexpr int SCREEN_SIZE_X = 1024;
 	static constexpr int SCREEN_SIZE_Y = 640;
 
+	static constexpr float FRAME_RATE = 1000.0f / 60.0f;
+
 	// データパス関連
 	//-------------------------------------------
 	static const std::string PATH_IMAGE;
@@ -39,6 +41,10 @@ public:
 	bool IsReleaseFail(void) const;
 
 private:
+
+	//フレーム固定用
+	int currentFrame_;	//現在のフレームを保存
+	int lastFrame_;		//最後に実行したフレームを保存
 
 	// 静的インスタンス
 	static Application* instance_;

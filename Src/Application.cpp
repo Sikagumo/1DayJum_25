@@ -1,5 +1,10 @@
 #include <DxLib.h>
 #include <EffekseerForDXLib.h>
+
+#include"Manager/Generic/SceneManager.h"
+#include"Manager/Generic/InputManager.h"
+#include"Manager/Generic/ResourceManager.h"
+
 #include "Application.h"
 
 Application* Application::instance_ = nullptr;
@@ -47,14 +52,40 @@ void Application::Init(void)
 	// キー制御初期化
 	SetUseDirectInputFlag(true);
 
+	InputManager::CreateInstance();
+
+	// リソース管理初期化
+	ResourceManager::CreateInstance();
+
+	// シーン管理初期化
+	SceneManager::CreateInstance();
+
+	//FPS用初期化
+	currentFrame_ = 0;
+	lastFrame_ = 0;
 }
 
 void Application::Run(void)
 {
+	auto& inputManager = InputManager::GetInstance();
+	auto& sceneManager = SceneManager::GetInstance();
 
 	// ゲームループ
 	while (ProcessMessage() == 0 && CheckHitKey(KEY_INPUT_ESCAPE) == 0)
 	{
+
+		Sleep(1);	//システムに処理を返す
+		currentFrame_ = GetNowCount();	//現在のフレーム数を獲得
+
+		//現在のフレームと最後の実行フレームの差分が一定値を超えたら更新処理を行う。
+		if (currentFrame_ - lastFrame_ >= FRAME_RATE)
+		{
+			lastFrame_ = currentFrame_;	//フレームの更新
+			inputManager.Update();
+			sceneManager.Update();	//更新
+		}
+
+		sceneManager.Draw();
 
 		ScreenFlip();
 
@@ -64,6 +95,9 @@ void Application::Run(void)
 
 void Application::Destroy(void)
 {
+	InputManager::GetInstance().Destroy();
+	ResourceManager::GetInstance().Destroy();
+	SceneManager::GetInstance().Destroy();
 
 	// Effekseerを終了する。
 	Effkseer_End();

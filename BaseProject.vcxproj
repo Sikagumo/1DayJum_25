@@ -19,12 +19,46 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Scene\Game.cpp" />
+    <ClCompile Include="Src\Scene\GameClear.cpp" />
     <ClCompile Include="Src\Application.cpp" />
+    <ClCompile Include="Src\Common\Fader.cpp" />
+    <ClCompile Include="Src\Common\IntVector3.cpp" />
+    <ClCompile Include="Src\Common\Quaternion.cpp" />
+    <ClCompile Include="Src\Common\Vector2.cpp" />
     <ClCompile Include="Src\main.cpp" />
+    <ClCompile Include="Src\Manager\Decoration\EffectManager.cpp" />
+    <ClCompile Include="Src\Manager\Decoration\SoundManager.cpp" />
+    <ClCompile Include="Src\Manager\Decoration\UIManager2d.cpp" />
+    <ClCompile Include="Src\Manager\Generic\Camera.cpp" />
+    <ClCompile Include="Src\Manager\Generic\InputManager.cpp" />
+    <ClCompile Include="Src\Manager\Generic\Resource.cpp" />
+    <ClCompile Include="Src\Manager\Generic\ResourceManager.cpp" />
+    <ClCompile Include="Src\Manager\Generic\SceneManager.cpp" />
+    <ClCompile Include="Src\Scene\SceneBase.cpp" />
+    <ClCompile Include="Src\Utility\Utility.cpp" />
+    <ClCompile Include="Src\Scene\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Scene\Game.h" />
+    <ClInclude Include="Src\Scene\GameClear.h" />
     <ClInclude Include="Src\Application.h" />
+    <ClInclude Include="Src\Common\Fader.h" />
+    <ClInclude Include="Src\Common\IntVector3.h" />
+    <ClInclude Include="Src\Common\Quaternion.h" />
+    <ClInclude Include="Src\Common\Vector2.h" />
     <ClInclude Include="Src\main.h" />
+    <ClInclude Include="Src\Manager\Decoration\EffectManager.h" />
+    <ClInclude Include="Src\Manager\Decoration\SoundManager.h" />
+    <ClInclude Include="Src\Manager\Decoration\UIManager2d.h" />
+    <ClInclude Include="Src\Manager\Generic\Camera.h" />
+    <ClInclude Include="Src\Manager\Generic\InputManager.h" />
+    <ClInclude Include="Src\Manager\Generic\Resource.h" />
+    <ClInclude Include="Src\Manager\Generic\ResourceManager.h" />
+    <ClInclude Include="Src\Manager\Generic\SceneManager.h" />
+    <ClInclude Include="Src\Scene\SceneBase.h" />
+    <ClInclude Include="Src\Utility\Utility.h" />
+    <ClInclude Include="Src\Scene\Title.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -115,6 +149,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(DXLIB_DIR)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

@@ -8,6 +8,7 @@ namespace {
 
 CharacterManager::CharacterManager(void)
 {
+	selectPlayerNum_ = 0;
 }
 
 CharacterManager::~CharacterManager(void)
@@ -101,6 +102,16 @@ void CharacterManager::NextState(void)
 	ChangeState(state_);
 }
 
+const int CharacterManager::GetSelectNum(const int _charaNum)const
+{
+	return characteres_[_charaNum]->GetSelectNum();
+}
+
+void CharacterManager::SelectLane(const int _charaNum, const BlockBase::AddBlock _addBlock)
+{
+	characteres_[_charaNum]->AddLane(_addBlock);
+}
+
 bool CharacterManager::FinishUpdateNomal(const int _charaNum) {
 	//関数のNextState()でのみ次にいく
 
@@ -118,6 +129,7 @@ bool CharacterManager::FinishUpdateSelect(const int _charaNum)
 
 			//次のプレイヤー番号
 			int nextPlayer = _charaNum + 1;
+			selectPlayerNum_ = nextPlayer;
 
 			if (nextPlayer < CHARACTER_NUM) {
 				//次のプレイヤーの選択を可能に

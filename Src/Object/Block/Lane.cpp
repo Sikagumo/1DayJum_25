@@ -15,10 +15,11 @@ void Lane::Init(const int _playerNum)
 	reachableLaneX = 0;
 
 	//”z’u‰Šú‰»
-	for (int x = 0; x < LANE_SIZE_X; ++x)
+	for (int x = 1; x < LANE_SIZE_X; ++x)
 	{
 		for (int y = 0; y < LANE_SIZE_Y; ++y)
 		{
+			lane_[0][y] = true;
 			lane_[x][y] = false;
 		}
 	}

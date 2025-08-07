@@ -75,6 +75,11 @@ void UnitBase::ChangeUpdateState(const CharacterManager::CHRACTER_STATE& _state)
 	}
 }
 
+void UnitBase::AddLane(const BlockBase::AddBlock _addBlock)
+{
+	blockLane_->AddBlockToLane(_addBlock);
+}
+
 void UnitBase::UpdateNomal(void)
 {
 	character_->Update();

@@ -1,5 +1,6 @@
 #pragma once
 #include<memory>
+#include"../../Object/Block/BlockBase.h"
 
 class UnitBase;
 
@@ -24,6 +25,9 @@ public:
 	void Release(void);
 	void ChangeState(const CHRACTER_STATE _state);
 	void NextState(void);
+
+	const int GetSelectNum(const int _charaNum)const;
+	void SelectLane(const int _charaNum, const BlockBase::AddBlock _addBlock);
 
 private:
 	//Šeíó‘Ô‚Å‚ÌXVŠ®—¹‚Ì”»’èˆ—

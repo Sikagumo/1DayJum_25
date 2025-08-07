@@ -27,6 +27,8 @@ public:
 	void ChangeSelectFlag(const bool _flag);
 	void ChangeUpdateState(const CharacterManager::CHRACTER_STATE& _state);
 
+	void AddLane(const BlockBase::AddBlock _addBlock);
+
 protected:
 	void UpdateNomal(void);	//í èÌ
 	void UpdateSelect(void);//ëIë

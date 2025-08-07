@@ -69,6 +69,7 @@ void Game::UpdateStartTurnFaze(void)
 
 	//終了したら選択肢フェーズへ
 	update_ = &Game::UpdateSelectFaze;
+	charaMng_->NextState();
 }
 
 void Game::UpdateSelectFaze(void)
@@ -78,8 +79,15 @@ void Game::UpdateSelectFaze(void)
 
 	//プレイヤーたちの入力受付
 	if (charaMng_->Update()) {
+
+		for (int i = 0; i < CharacterManager::CHARACTER_NUM; i++)
+		{
+			charaMng_->SelectLane(i, randomBlockCntl_->GetSelectBlock(charaMng_->GetSelectNum(i)));
+		}
+
 		//終了したら反映フェーズへ
 		update_ = &Game::UpdateMoveFaze;
+		charaMng_->NextState();
 	}
 }
 

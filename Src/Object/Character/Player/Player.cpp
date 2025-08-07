@@ -12,6 +12,8 @@ void Player::Init(const int _playerNum)
 	blockLane_ = std::make_unique<Lane>();
 	blockLane_->Init(_playerNum);	//‰½P‚©
 
+	if (_playerNum == 0)canSelect_ = true;
+
 	VECTOR setCharaPos = blockLane_->GetStartPos();
 	setCharaPos.x -= 32;
 

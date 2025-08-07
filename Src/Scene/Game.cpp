@@ -1,4 +1,5 @@
 #include<DxLib.h>
+#include"../Manager/Generic/SceneManager.h"
 #include"../Manager/GameSystem/CharacterManager.h"
 #include "Game.h"
 #include "../Object/Block/BlockController.h"
@@ -16,7 +17,7 @@ void Game::Init(void)
 {
 	//キャラクター生成
 	charaMng_ = std::make_unique<CharacterManager>();
-	charaMng_->Init(1);	//引数はSceneManagerよりユーザ人数を取得(マージ後)
+	charaMng_->Init(SceneManager::GetInstance().GetPlayerNum());	//引数はSceneManagerよりユーザ人数を取得(マージ後)
 
 	//ブロック生成
 	blockController_ = std::make_unique<BlockController>();

@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Src\Object\Block\RandomBlock.cpp" />
+    <ClCompile Include="Src\Object\Block\BlockBase.cpp" />
+    <ClCompile Include="Src\Object\Block\Lane.cpp" />
     <ClCompile Include="Src\Manager\GameSystem\CharacterManager.cpp" />
     <ClCompile Include="Src\Object\Character\CPU\Cpu.cpp" />
     <ClCompile Include="Src\Object\Character\Player\Player.cpp" />
@@ -28,8 +31,6 @@
     <ClCompile Include="Src\Object\Character\CPU\CpuCharacter.cpp" />
     <ClCompile Include="Src\Object\Character\Player\PlayerCharacter.cpp" />
     <ClCompile Include="Src\Object\Character\CharacterBase.cpp" />
-    <ClCompile Include="Src\Object\Block\Block.cpp" />
-    <ClCompile Include="Src\Object\Block\BlockController.cpp" />
     <ClCompile Include="Src\Scene\Select.cpp" />
     <ClCompile Include="Src\Scene\Game.cpp" />
     <ClCompile Include="Src\Scene\GameClear.cpp" />
@@ -53,6 +54,9 @@
     <ClCompile Include="Src\Object\Character\UnitBase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Src\Object\Block\RandomBlock.h" />
+    <ClInclude Include="Src\Object\Block\BlockBase.h" />
+    <ClInclude Include="Src\Object\Block\Lane.h" />
     <ClInclude Include="Src\Manager\GameSystem\CharacterManager.h" />
     <ClInclude Include="Src\Object\Character\CPU\Cpu.h" />
     <ClInclude Include="Src\Object\Character\Player\Player.h" />
@@ -62,8 +66,6 @@
     <ClInclude Include="Src\Object\Character\CPU\CpuCharacter.h" />
     <ClInclude Include="Src\Object\Character\Player\PlayerCharacter.h" />
     <ClInclude Include="Src\Object\Character\CharacterBase.h" />
-    <ClInclude Include="Src\Object\Block\Block.h" />
-    <ClInclude Include="Src\Object\Block\BlockController.h" />
     <ClInclude Include="Src\Scene\Select.h" />
     <ClInclude Include="Src\Scene\Game.h" />
     <ClInclude Include="Src\Scene\GameClear.h" />

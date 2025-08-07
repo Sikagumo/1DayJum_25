@@ -47,6 +47,10 @@ void ResourceManager::InitTitle(void)
 	// タイトル
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "TitleLogo.png");
 	resourcesMap_.emplace(SRC::TITLE_LOGO, res);
+
+	// ステージ画像
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "StageImage.png");
+	resourcesMap_.emplace(SRC::STAGE_IMG, res);
 }
 
 void ResourceManager::InitGame(void)

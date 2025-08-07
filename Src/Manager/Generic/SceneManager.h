@@ -27,6 +27,7 @@ public:
 		TITLE,
 		GAME,
 		CLEAR,
+		SELECT,
 
 		//ポップ可能シーン
 		PAUSE,
@@ -77,6 +78,8 @@ public:
 	int GetMainScreen(void)const { return mainScreen_; }
 	const float GetTotalTime(void)const { return totalTime_; }
 
+	//プレイヤー数
+	void SetPlayerNum(int _num);
 private:
 
 	// 静的インスタンス
@@ -108,6 +111,9 @@ private:
 
 	//更新カウンターの倍率
 	float updateSpeedRate_;
+
+	//プレイヤー数
+	int playerNum_;
 	
 	// デフォルトコンストラクタをprivateにして、
 	// 外部から生成できない様にする

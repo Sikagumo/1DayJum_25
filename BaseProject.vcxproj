@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Src\Object\Block\Block.cpp" />
     <ClCompile Include="Src\Object\Block\BlockController.cpp" />
+    <ClCompile Include="Src\Scene\Select.cpp" />
     <ClCompile Include="Src\Scene\Game.cpp" />
     <ClCompile Include="Src\Scene\GameClear.cpp" />
     <ClCompile Include="Src\Application.cpp" />
@@ -44,6 +45,7 @@
   <ItemGroup>
     <ClInclude Include="Src\Object\Block\Block.h" />
     <ClInclude Include="Src\Object\Block\BlockController.h" />
+    <ClInclude Include="Src\Scene\Select.h" />
     <ClInclude Include="Src\Scene\Game.h" />
     <ClInclude Include="Src\Scene\GameClear.h" />
     <ClInclude Include="Src\Application.h" />

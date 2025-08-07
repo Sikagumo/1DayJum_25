@@ -1,16 +1,25 @@
 #include"../Manager/Generic/SceneManager.h"
 #include"../Manager/Generic/InputManager.h"
+#include"../Manager/Generic/ResourceManager.h"
 
 #include"../Application.h"
 
-#include "GameClear.h"
 #include "Game.h"
 #include "Title.h"
 #include "Select.h"
 
+#include "GameClear.h"
 GameClear::GameClear(void)
 {
 	next_ = (int)NEXT_SCENE::NONE;
+
+	titleImg_ = -1;
+	selectImg_ = -1;
+	retryImg_ = -1;
+	arrowImg_ = -1;
+
+	arrowPosX_ = 0;
+	arrowPosY_ = 0;
 }
 
 GameClear::~GameClear(void)
@@ -19,8 +28,17 @@ GameClear::~GameClear(void)
 
 void GameClear::Init(void)
 {
+	auto& resM = ResourceManager::GetInstance();
+	resM.Init(SceneManager::SCENE_ID::CLEAR);
 	next_ = (int)NEXT_SCENE::GAME;
 
+	titleImg_ = resM.Load(ResourceManager::SRC::TITLE_BUTTON).handleId_;
+	selectImg_ = resM.Load(ResourceManager::SRC::SELECT_BUTTON).handleId_;
+	retryImg_ = resM.Load(ResourceManager::SRC::RETRY_BUTTON).handleId_;
+	arrowImg_ = resM.Load(ResourceManager::SRC::ARROW_RIGHT).handleId_;
+
+	arrowPosX_ = Application::SCREEN_SIZE_X / 2 - 100;
+	arrowPosY_ = 200 + next_ * 100;
 }
 
 void GameClear::Update(void)
@@ -35,9 +53,13 @@ void GameClear::Draw(void)
 	DrawString(0, 0, "GameClear", 0xffffff, false);
 	DrawFormatString(100, 100, 0xffffff, "%d", next_);
 
-	DrawString(500, 200, "リトライ", 0xffffff, false);
-	DrawString(500, 300, "人数選択", 0xffffff, false);
-	DrawString(500, 400, "タイトル", 0xffffff, false);
+	//DrawBox(0, 0, Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y, 0xffffff, 1);
+
+	DrawRotaGraph(Application::SCREEN_SIZE_X/2, 300, 0.2, 0, retryImg_, 1);
+	DrawRotaGraph(Application::SCREEN_SIZE_X/2, 400, 0.2, 0, selectImg_, 1);
+	DrawRotaGraph(Application::SCREEN_SIZE_X/2, 500, 0.2, 0, titleImg_, 1);
+
+	DrawRotaGraph(arrowPosX_, arrowPosY_, 0.1, 0, arrowImg_, 1);
 }
 
 void GameClear::Release(void)
@@ -59,8 +81,12 @@ void GameClear::ChangeNext()
 	else if (inpM.IsTrigerrDown("down"))
 		++next_;
 
-	next_=std::clamp(next_, 1, 3);
+	//next_=std::clamp(next_, 1, 3);
 
+	if (next_ < 1)next_ = 1;
+	if (next_ > 3)next_ = 3;
+
+	arrowPosY_ = 200 + next_ * 100;
 }
 
 void GameClear::ChangeScene()

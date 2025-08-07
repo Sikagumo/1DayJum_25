@@ -5,7 +5,7 @@
 
 #include "../../Scene/SceneBase.h"
 #include"../../Scene/Title.h"
-#include"../../Scene/GameClear.h"
+#include"../../Scene/Select.h"
 
 #include"../Decoration/EffectManager.h"
 #include"../Decoration/SoundManager.h"
@@ -63,7 +63,7 @@ void SceneManager::Init(void)
 	Init3D();
 
 	// 初期シーンの設定
-	ChangeScene(std::make_shared<GameClear>());
+	ChangeScene(std::make_shared<Select>());
 
 	// メインスクリーン
 	mainScreen_ = MakeScreen(

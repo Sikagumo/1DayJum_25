@@ -27,6 +27,7 @@ public:
 		TITLE,
 		GAME,
 		CLEAR,
+		SELECT,
 
 		//ポップ可能シーン
 		PAUSE,

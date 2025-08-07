@@ -26,6 +26,14 @@ public:
 private:
     int next_;
 
+    int titleImg_;
+    int selectImg_;
+    int retryImg_;
+    int arrowImg_;
+
+    int arrowPosX_;
+    int arrowPosY_;
+
     void ChangeNext();
     void ChangeScene();
 };

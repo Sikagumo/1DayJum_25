@@ -34,6 +34,9 @@ void ResourceManager::Init(SceneManager::SCENE_ID _scene)
 	case SceneManager::SCENE_ID::CLEAR:
 		InitClear();
 		break;
+	case SceneManager::SCENE_ID::SELECT:
+		InitSelect();
+		break;
 	default:
 		break;
 	}
@@ -47,6 +50,10 @@ void ResourceManager::InitTitle(void)
 	// タイトル
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "TitleLogo.png");
 	resourcesMap_.emplace(SRC::TITLE_LOGO, res);
+
+	// ステージ画像
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "StageImage.png");
+	resourcesMap_.emplace(SRC::STAGE_IMG, res);
 }
 
 void ResourceManager::InitGame(void)
@@ -59,6 +66,35 @@ void ResourceManager::InitGame(void)
 void ResourceManager::InitClear(void)
 {
 	Resource res;
+
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "TitleButton.png");
+	resourcesMap_.emplace(SRC::TITLE_BUTTON, res);
+
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "RetryButton.png");
+	resourcesMap_.emplace(SRC::RETRY_BUTTON, res);
+
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "SelectButton.png");
+	resourcesMap_.emplace(SRC::SELECT_BUTTON, res);
+
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "ArrowRight.png");
+	resourcesMap_.emplace(SRC::ARROW_RIGHT, res);
+}
+
+void ResourceManager::InitSelect()
+{
+	Resource res;
+
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "player_button_1p.png");
+	resourcesMap_.emplace(SRC::PLAYER_BUTTON_1, res);
+
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "player_button_2p.png");
+	resourcesMap_.emplace(SRC::PLAYER_BUTTON_2, res);
+
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "player_button_3p.png");
+	resourcesMap_.emplace(SRC::PLAYER_BUTTON_3, res);
+
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "player_button_4p.png");
+	resourcesMap_.emplace(SRC::PLAYER_BUTTON_4, res);
 }
 
 

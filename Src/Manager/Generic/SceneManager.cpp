@@ -5,6 +5,7 @@
 
 #include "../../Scene/SceneBase.h"
 #include"../../Scene/Title.h"
+#include"../../Scene/Select.h"
 
 #include"../Decoration/EffectManager.h"
 #include"../Decoration/SoundManager.h"
@@ -54,6 +55,7 @@ void SceneManager::Init(void)
 	scene_->Init();*/
 
 	isSceneChanging_ = false;
+	nextScene_ = nullptr;
 
 	// デルタタイム
 	preTime_ = std::chrono::system_clock::now();
@@ -62,7 +64,7 @@ void SceneManager::Init(void)
 	Init3D();
 
 	// 初期シーンの設定
-	ChangeScene(std::make_shared<Title>());
+	ChangeScene(std::make_shared<Select>());
 
 	// メインスクリーン
 	mainScreen_ = MakeScreen(
@@ -196,20 +198,14 @@ void SceneManager::ChangeScene(std::shared_ptr<SceneBase> _scene)
 
 	_scene->Init();
 
-	if (scenes_.empty()) {
-		//空なので新しく入れる
-		scenes_.push_back(_scene);
-	}
-	else {
-		//末尾のものを新しい物に入れ替える
-		scenes_.back() = _scene;
-	}
-
-	// フェードアウト(暗転)を開始する
-	fader_->SetFade(Fader::STATE::FADE_OUT);
-	isSceneChanging_ = true;
+	//解放
+	scenes_.clear();
+	//空なので新しく入れる
+	scenes_.push_back(_scene); (scenes_.empty());
 
 	ResetDeltaTime();
+
+	nextScene_ = nullptr;
 }
 
 void SceneManager::PushScene(std::shared_ptr<SceneBase> _scene)
@@ -225,6 +221,15 @@ void SceneManager::PopScene(void)
 
 void SceneManager::JumpScene(std::shared_ptr<SceneBase> _scene)
 {
+	nextScene_ = _scene;
+
+	// フェードアウト(暗転)を開始する
+	fader_->SetFade(Fader::STATE::FADE_OUT);
+	isSceneChanging_ = true;
+}
+
+void SceneManager::DoChangeScene(void)
+{
 	auto& resM = ResourceManager::GetInstance();
 	auto& sndM = SoundManager::GetInstance();
 	auto& uiM = UIManager2d::GetInstance();
@@ -234,18 +239,16 @@ void SceneManager::JumpScene(std::shared_ptr<SceneBase> _scene)
 	sndM.Release();
 	uiM.Relese();
 
-	_scene->Init();
+	nextScene_->Init();
 
 	//解放
 	scenes_.clear();
 	//空なので新しく入れる
-	scenes_.push_back(_scene); (scenes_.empty());
-
-	// フェードアウト(暗転)を開始する
-	fader_->SetFade(Fader::STATE::FADE_OUT);
-	isSceneChanging_ = true;
+	scenes_.push_back(nextScene_); (scenes_.empty());
 
 	ResetDeltaTime();
+
+	nextScene_ = nullptr;
 }
 
 
@@ -286,6 +289,11 @@ void SceneManager::SwitchController(void)
 	}
 }
 
+void SceneManager::SetPlayerNum(int _num)
+{
+	playerNum_ = _num;
+}
+
 SceneManager::SceneManager(void)
 {
 
@@ -305,6 +313,7 @@ SceneManager::SceneManager(void)
 
 	updateSpeedRate_ = 1.0f;
 
+	playerNum_ = -1;
 }
 
 void SceneManager::ResetDeltaTime(void)
@@ -333,6 +342,8 @@ void SceneManager::Fade(void)
 		// 暗転中
 		if (fader_->IsEnd())
 		{
+			//明転しきったらシーン切り替え
+			DoChangeScene();
 			// 暗転から明転へ
 			fader_->SetFade(Fader::STATE::FADE_IN);
 		}

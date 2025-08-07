@@ -4,6 +4,15 @@ class GameClear :
     public SceneBase
 {
 public:
+
+    enum class NEXT_SCENE
+    {
+        NONE,
+        GAME,
+        SELECT,
+        TITLE,
+    };
+
     GameClear(void);
     ~GameClear(void)override;
 
@@ -11,5 +20,23 @@ public:
     void Update(void)override;
     void Draw(void)override;
     void Release(void)override;
+
+    void DrawRank(int _1st,int _2nd_,int _3rd,int _4th);
+    
+private:
+    int next_;
+
+    int titleImg_;
+    int selectImg_;
+    int retryImg_;
+    int arrowImg_;
+
+    int arrowPosX_;
+    int arrowPosY_;
+
+    void ChangeNext();
+    void ChangeScene();
 };
 
+
+//èáà 

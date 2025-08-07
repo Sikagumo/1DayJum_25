@@ -14,6 +14,15 @@ public:
 	{
 		//‰æ‘œ
 		TITLE_LOGO,
+		TITLE_BUTTON,
+		RETRY_BUTTON,
+		SELECT_BUTTON,
+		ARROW_RIGHT,
+		PLAYER_BUTTON_1,
+		PLAYER_BUTTON_2,
+		PLAYER_BUTTON_3,
+		PLAYER_BUTTON_4,
+		STAGE_IMG,
 
 		//ƒ‚ƒfƒ‹
 		STAGE_MDL,
@@ -39,6 +48,7 @@ private:
 	void InitTitle(void);
 	void InitGame(void);
 	void InitClear(void);
+	void InitSelect(void);
 
 public:
 	// ‰ð•ú(ƒV[ƒ“Ø‘ÖŽž‚Éˆê’U‰ð•ú)

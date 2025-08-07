@@ -27,6 +27,7 @@ public:
 		TITLE,
 		GAME,
 		CLEAR,
+		SELECT,
 
 		//ポップ可能シーン
 		PAUSE,
@@ -53,10 +54,13 @@ public:
 	// リソースの破棄
 	void Destroy(void);
 
+	//シーン遷移
 	void ChangeScene(std::shared_ptr<SceneBase>_scene);
 	void PushScene(std::shared_ptr<SceneBase>_scene);
 	void PopScene(void);
 	void JumpScene(std::shared_ptr<SceneBase>_scene);
+
+	void DoChangeScene(void);
 
 	// シーンIDの取得
 	SCENE_ID GetSceneID(void);
@@ -77,6 +81,8 @@ public:
 	int GetMainScreen(void)const { return mainScreen_; }
 	const float GetTotalTime(void)const { return totalTime_; }
 
+	//プレイヤー数
+	void SetPlayerNum(int _num);
 private:
 
 	// 静的インスタンス
@@ -97,6 +103,7 @@ private:
 
 	// 各種シーン
 	std::vector<std::shared_ptr<SceneBase>> scenes_;	//シーン格納
+	std::shared_ptr<SceneBase>nextScene_;
 
 	// シーン遷移中判定
 	bool isSceneChanging_;
@@ -108,6 +115,9 @@ private:
 
 	//更新カウンターの倍率
 	float updateSpeedRate_;
+
+	//プレイヤー数
+	int playerNum_;
 	
 	// デフォルトコンストラクタをprivateにして、
 	// 外部から生成できない様にする

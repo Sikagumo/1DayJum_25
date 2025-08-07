@@ -14,6 +14,7 @@ public:
 	{
 		//‰æ‘œ
 		TITLE_LOGO,
+		STAGE_IMG,
 
 		//ƒ‚ƒfƒ‹
 		STAGE_MDL,

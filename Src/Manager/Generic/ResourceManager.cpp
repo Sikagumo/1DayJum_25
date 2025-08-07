@@ -67,6 +67,10 @@ void ResourceManager::InitGame(void)
 	//数字画像
 	res = Resource(Resource::TYPE::IMGS, Application::PATH_IMAGE + "Numbers2.png", NUMBERS_NUM_X, NUMBERS_NUM_Y, NUMBERS_SIZE, NUMBERS_SIZE);
 	resourcesMap_.emplace(SRC::NUMBERS, res);
+
+	//タイマー音
+	res = Resource(Resource::TYPE::SOUND, Application::PATH_SOUND + "Timer.mp3");
+	resourcesMap_.emplace(SRC::TIMER_SE, res);
 }
 
 void ResourceManager::InitClear(void)

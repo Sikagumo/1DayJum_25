@@ -35,7 +35,12 @@ public:
 		STAGE_MDL,
 
 		//音
+
+		//BGM
 		TITLE_BGM,
+
+		//SE
+		TIMER_SE,
 
 		//エフェクト
 	};

@@ -24,6 +24,7 @@ public:
 	//数字のサイズ
 	static constexpr float NUMBERS_RATE = 0.4f;
 
+	//数字の相対座標
 	static constexpr int NUMBERS_LOCAL_POS_X = 30;
 
 	//インスタンスの生成

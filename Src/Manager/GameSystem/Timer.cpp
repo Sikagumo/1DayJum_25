@@ -1,4 +1,5 @@
 #include "../../Application.h"
+#include "../Decoration/SoundManager.h"
 #include "../Generic/SceneManager.h"
 #include "../Generic/Resource.h"
 #include "../Generic/ResourceManager.h"
@@ -78,10 +79,14 @@ Timer::Timer(void)
     //インスタンス
     auto& res = ResourceManager::GetInstance();
     auto& ui = UIManager2d::GetInstance();
+    auto& sound = SoundManager::GetInstance();
 
     //変数初期化
     time_ = { 0,0 };
     cnt_ = 0.0f;
+
+    //サウンド
+    sound.Add(SoundManager::TYPE::SE, "Timer", res.Load(ResourceManager::SRC::TIMER_SE).handleId_);
 
     //タイマー背景
     ui.Add("TimerBack"

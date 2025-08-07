@@ -35,7 +35,8 @@ void Timer::Draw(void)
     DrawRotaGraph(Application::SCREEN_SIZE_X / 2, TIMER_BACK_SIZE_Y, TIMER_BACK_RATE, 0.0, timerBackImg_, true);
 
     //êîéöÇÃï`âÊ
-    //DrawRotaGraph(Application::SCREEN_SIZE_X / 2,)
+    DrawRotaGraph(Application::SCREEN_SIZE_X / 2, TIMER_BACK_SIZE_Y, 1.0, 0.0, numImgs_[static_cast<int>(cnt_) % 10], true);
+    DrawRotaGraph(Application::SCREEN_SIZE_X / 2, TIMER_BACK_SIZE_Y, 1.0, 0.0, numImgs_[static_cast<int>(cnt_) / 10], true);
 }
 
 void Timer::Destroy(void)

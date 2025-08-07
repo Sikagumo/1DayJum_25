@@ -19,7 +19,8 @@ GameClear::~GameClear(void)
 
 void GameClear::Init(void)
 {
-	next_ = (int)NEXT_SCENE::TITLE;
+	next_ = (int)NEXT_SCENE::GAME;
+
 }
 
 void GameClear::Update(void)
@@ -33,10 +34,19 @@ void GameClear::Draw(void)
 {
 	DrawString(0, 0, "GameClear", 0xffffff, false);
 	DrawFormatString(100, 100, 0xffffff, "%d", next_);
+
+	DrawString(500, 200, "リトライ", 0xffffff, false);
+	DrawString(500, 300, "人数選択", 0xffffff, false);
+	DrawString(500, 400, "タイトル", 0xffffff, false);
 }
 
 void GameClear::Release(void)
 {
+}
+
+void GameClear::DrawRank(int _1st, int _2nd_, int _3rd, int _4th)
+{
+
 }
 
 void GameClear::ChangeNext()
@@ -50,6 +60,7 @@ void GameClear::ChangeNext()
 		++next_;
 
 	next_=std::clamp(next_, 1, 3);
+
 }
 
 void GameClear::ChangeScene()

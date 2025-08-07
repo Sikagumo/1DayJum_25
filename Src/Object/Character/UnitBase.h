@@ -1,6 +1,7 @@
 #pragma once
 #include<DxLib.h>
 #include<memory>
+#include"../../Manager/GameSystem/CharacterManager.h"
 
 class CharacterBase;
 class SelectLogicBase;
@@ -23,6 +24,7 @@ public:
 	void ResetSelect(void);
 
 	void ChangeSelectFlag(const bool _flag);
+	void ChangeUpdateState(const CharacterManager::CHRACTER_STATE& _state);
 
 protected:
 	void UpdateNomal(void);	//í èÌ

@@ -52,6 +52,27 @@ void UnitBase::ChangeSelectFlag(const bool _flag)
 	canSelect_ = _flag;
 }
 
+void UnitBase::ChangeUpdateState(const CharacterManager::CHRACTER_STATE& _state)
+{
+	//各種状態に合わせた更新に変更
+
+	using C_STATE = CharacterManager::CHRACTER_STATE;
+	switch (_state) {
+	case C_STATE::NOMAL:
+		update_ = &UnitBase::UpdateNomal;
+		break;
+
+	case C_STATE::SELECT:
+		update_ = &UnitBase::UpdateSelect;
+		break;
+
+	case C_STATE::EFFECT:
+		//最初は足場の反映から
+		updateEffect_ = &UnitBase::UpdateEffectOfBlock;
+		update_ = &UnitBase::UpdateEffect;
+	}
+}
+
 void UnitBase::UpdateNomal(void)
 {
 	character_->Update();
@@ -75,8 +96,13 @@ void UnitBase::UpdateEffect(void)
 
 void UnitBase::UpdateEffectOfBlock(void)
 {
+	//足場反映処理
+
+	//終わったら移動の反映へ
+	updateEffect_ = &UnitBase::UpdateEffectOfMove;
 }
 
 void UnitBase::UpdateEffectOfMove(void)
 {
+	//足場を確認し先端へ移動
 }

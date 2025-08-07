@@ -1,10 +1,10 @@
 #include "../../Application.h"
-#include "SceneManager.h"
-#include "Resource.h"
-#include "ResourceManager.h"
+#include "../Generic/SceneManager.h"
+#include "../Generic/Resource.h"
+#include "../Generic/ResourceManager.h"
 #include "Timer.h"
 
-static Timer* instance_ = nullptr;
+Timer* Timer::instance_ = nullptr;
 
 void Timer::CreateInstance(void)
 {
@@ -25,18 +25,34 @@ void Timer::Update(void)
     //インスタンス
     auto& scnMng = SceneManager::GetInstance();
 
-    //カウンタ
-    cnt_ += scnMng.GetDeltaTime();
+    if (TIME_LIMIT.second - static_cast<int>(cnt_) > 0)
+    {
+        //カウンタ
+        cnt_ += scnMng.GetDeltaTime();
+    }
 }
 
-void Timer::Draw(void)
+void Timer::Draw(void)const
 {
     //背景の描画
     DrawRotaGraph(Application::SCREEN_SIZE_X / 2, TIMER_BACK_SIZE_Y, TIMER_BACK_RATE, 0.0, timerBackImg_, true);
 
     //数字の描画
-    DrawRotaGraph(Application::SCREEN_SIZE_X / 2, TIMER_BACK_SIZE_Y, 1.0, 0.0, numImgs_[static_cast<int>(cnt_) % 10], true);
-    DrawRotaGraph(Application::SCREEN_SIZE_X / 2, TIMER_BACK_SIZE_Y, 1.0, 0.0, numImgs_[static_cast<int>(cnt_) / 10], true);
+    DrawRotaGraph(
+        Application::SCREEN_SIZE_X / 2 + ResourceManager::NUMBERS_SIZE / 2 * NUMBERS_RATE
+        , TIMER_BACK_SIZE_Y
+        , NUMBERS_RATE
+        , 0.0
+        , numImgs_[(TIME_LIMIT.second - static_cast<int>(cnt_)) % 10]
+        , true);
+
+    DrawRotaGraph(
+        Application::SCREEN_SIZE_X / 2 - ResourceManager::NUMBERS_SIZE / 2 * NUMBERS_RATE
+        , TIMER_BACK_SIZE_Y
+        , NUMBERS_RATE
+        , 0.0
+        , numImgs_[(TIME_LIMIT.second - static_cast<int>(cnt_)) / 10]
+        , true);
 }
 
 void Timer::Destroy(void)
@@ -44,6 +60,11 @@ void Timer::Destroy(void)
     //インスタンスの破棄
     delete instance_;
     instance_ = nullptr;
+}
+
+const bool Timer::IsOverLimit(void) const
+{
+    return TIME_LIMIT.second - static_cast<int>(cnt_) <= 0;
 }
 
 Timer::Timer(void)

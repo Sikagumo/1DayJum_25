@@ -21,6 +21,9 @@ public:
 	//数字描画数
 	static constexpr int NUM_CNT = 2;
 
+	//数字のサイズ
+	static constexpr float NUMBERS_RATE = 0.5f;
+
 	//インスタンスの生成
 	static void CreateInstance(void);
 	
@@ -31,10 +34,13 @@ public:
 	void Update(void);
 	
 	//描画
-	void Draw(void);
+	void Draw(void)const;
 
 	//インスタンスの削除
 	void Destroy(void);
+
+	//制限時間を超えたか
+	const bool IsOverLimit(void)const;
 
 private:
 

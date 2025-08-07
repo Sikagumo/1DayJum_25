@@ -66,7 +66,7 @@ void ResourceManager::InitGame(void)
 	
 	//êîéöâÊëú
 	res = Resource(Resource::TYPE::IMGS, Application::PATH_IMAGE + "Numbers.png", NUMBERS_NUM_X, NUMBERS_NUM_Y, NUMBERS_SIZE, NUMBERS_SIZE);
-	resourcesMap_.emplace(SRC::TITLE_BUTTON, res);
+	resourcesMap_.emplace(SRC::NUMBERS, res);
 }
 
 void ResourceManager::InitClear(void)

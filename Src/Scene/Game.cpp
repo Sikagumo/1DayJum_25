@@ -1,4 +1,7 @@
 #include<DxLib.h>
+#include"../Manager/Generic/Resource.h"
+#include"../Manager/Generic/ResourceManager.h"
+#include"../Manager/GameSystem/Timer.h"
 #include"../Manager/GameSystem/CharacterManager.h"
 #include "Game.h"
 #include "../Object/Block/BlockController.h"
@@ -10,13 +13,21 @@ Game::Game(void)
 
 Game::~Game(void)
 {
+	Timer::GetInstance().Destroy();
 }
 
 void Game::Init(void)
 {
+	//リソース
+	auto& resM = ResourceManager::GetInstance();
+	resM.Init(SceneManager::SCENE_ID::GAME);
+
 	//キャラクター生成
 	charaMng_ = std::make_unique<CharacterManager>();
 	charaMng_->Init(1);	//引数はSceneManagerよりユーザ人数を取得(マージ後)
+
+	//タイマーの生成
+	Timer::CreateInstance();
 
 	//ブロック生成
 	blockController_ = std::make_unique<BlockController>();
@@ -37,6 +48,9 @@ void Game::Draw(void)
 
 	//キャラクター
 	charaMng_->Draw();
+
+	//タイマー描画
+	Timer::GetInstance().Draw();
 }
 
 void Game::Release(void)
@@ -55,6 +69,9 @@ void Game::UpdateStartTurnFaze(void)
 
 void Game::UpdateSelectFaze(void)
 {
+	//タイマーの更新
+	Timer::GetInstance().Update();
+
 	//プレイヤーたちの入力受付
 	if (charaMng_->Update()) {
 		//終了したら反映フェーズへ

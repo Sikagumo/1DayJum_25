@@ -51,7 +51,7 @@
     <ClCompile Include="Src\Utility\Utility.cpp" />
     <ClCompile Include="Src\Scene\Title.cpp" />
     <ClCompile Include="Src\Object\Character\UnitBase.cpp" />
-    <ClCompile Include="Src\Manager\Generic\Timer.cpp" />
+    <ClCompile Include="Src\Manager\GameSystem\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Manager\GameSystem\CharacterManager.h" />
@@ -86,7 +86,7 @@
     <ClInclude Include="Src\Utility\Utility.h" />
     <ClInclude Include="Src\Scene\Title.h" />
     <ClInclude Include="Src\Object\Character\UnitBase.h" />
-    <ClInclude Include="Src\Manager\Generic\Timer.h" />
+    <ClInclude Include="Src\Manager\GameSystem\Timer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -62,11 +62,5 @@ private:
 
 	//カウンタ
 	float cnt_;
-
-	//タイマー背景
-	int timerBackImg_;
-
-	//数字画像
-	int* numImgs_;
 };
 

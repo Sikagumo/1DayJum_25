@@ -18,18 +18,35 @@ public:
 	enum class SRC
 	{
 		//画像
-		TITLE_LOGO,
-		TITLE_BUTTON,
-		RETRY_BUTTON,
-		SELECT_BUTTON,
-		ARROW_RIGHT,
-		PLAYER_BUTTON_1,
-		PLAYER_BUTTON_2,
-		PLAYER_BUTTON_3,
-		PLAYER_BUTTON_4,
-		STAGE_IMG,
-		TIMER_BACK,
-		NUMBERS,
+		TITLE_LOGO,			//タイトルロゴ
+		TITLE_BUTTON,		//タイトルボタン
+		RETRY_BUTTON,		//リトライボタン
+		SELECT_BUTTON,		//セレクトボタン
+		ARROW_RIGHT,		//右矢印
+		PLAYER_BUTTON_1,	//人数選択1人
+		PLAYER_BUTTON_2,	//人数選択2人
+		PLAYER_BUTTON_3,	//人数選択3人
+		PLAYER_BUTTON_4,	//人数選択4人
+		TIMER_BACK,			//タイマー背景
+		NUMBERS,			//数字
+		PASS_CONTROLLER,	//コントローラー渡し
+		RANK_FIRST,			//1位
+		RANK_SECOND,		//2位
+		RANK_THIRD,			//3位
+		RANK_FOURTH,		//4位
+		START_IMG,			//スタート画像
+		FINISH_IMG,			//終了画像
+		WIN_IMG,			//勝利画像
+		START_BLOCK,		//スタートブロック
+		LAVA_BLOCK,			//溶岩ブロック
+		STONE_BLOCK,		//石ブロック
+		BUTTON_UP,			//上ボタン
+		BUTTON_RIGHT,		//右ボタン
+		BUTTON_DOWN,		//下ボタン
+		BUTTON_LEFT,		//左ボタン
+		BACK_LAVA,			//溶岩背景
+		BACK_SKY,			//空背景
+
 
 		//モデル
 		STAGE_MDL,

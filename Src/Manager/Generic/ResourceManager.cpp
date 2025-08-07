@@ -48,12 +48,12 @@ void ResourceManager::InitTitle(void)
 	Resource res;
 
 	// タイトル
-	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "TitleLogo.png");
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Title2.png");
 	resourcesMap_.emplace(SRC::TITLE_LOGO, res);
 
 	// ステージ画像
-	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "StageImage.png");
-	resourcesMap_.emplace(SRC::STAGE_IMG, res);
+	//res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "StageImage.png");
+	//resourcesMap_.emplace(SRC::STAGE_IMG, res);
 }
 
 void ResourceManager::InitGame(void)
@@ -71,6 +71,58 @@ void ResourceManager::InitGame(void)
 	//タイマー音
 	res = Resource(Resource::TYPE::SOUND, Application::PATH_SOUND + "Timer.mp3");
 	resourcesMap_.emplace(SRC::TIMER_SE, res);
+
+	//コントローラー渡し
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "PassControler.png");
+	resourcesMap_.emplace(SRC::PASS_CONTROLLER, res);
+
+	//上ボタン
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Button1.png");
+	resourcesMap_.emplace(SRC::BUTTON_UP, res);
+
+	//右ボタン
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Button3.png");
+	resourcesMap_.emplace(SRC::BUTTON_RIGHT, res);
+
+	//下ボタン
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Button4.png");
+	resourcesMap_.emplace(SRC::BUTTON_DOWN, res);
+
+	//左ボタン
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Button2.png");
+	resourcesMap_.emplace(SRC::BUTTON_LEFT, res);
+
+	//START
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Start.png");
+	resourcesMap_.emplace(SRC::START_IMG, res);
+
+	//FINISH
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Finish.png");
+	resourcesMap_.emplace(SRC::FINISH_IMG, res);
+
+	//WIN
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/WINS.png");
+	resourcesMap_.emplace(SRC::WIN_IMG, res);
+
+	//スタートブロック
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Block/StartBlock.png");
+	resourcesMap_.emplace(SRC::START_BLOCK, res);
+
+	//溶岩
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Block/LavaBlock.png");
+	resourcesMap_.emplace(SRC::LAVA_BLOCK, res);
+
+	//石ブロック
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Block/StoneBlock.png");
+	resourcesMap_.emplace(SRC::STONE_BLOCK, res);
+
+	//溶岩背景
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Lava.png");
+	resourcesMap_.emplace(SRC::BACK_LAVA, res);
+	
+	//空背景
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Sky.png");
+	resourcesMap_.emplace(SRC::BACK_SKY, res);
 }
 
 void ResourceManager::InitClear(void)
@@ -92,6 +144,22 @@ void ResourceManager::InitClear(void)
 	//右矢印
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "ArrowRight.png");
 	resourcesMap_.emplace(SRC::ARROW_RIGHT, res);
+
+	//1位
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "1stImage.png");
+	resourcesMap_.emplace(SRC::RANK_FIRST, res);
+
+	//2位
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "2ndImage.png");
+	resourcesMap_.emplace(SRC::RANK_SECOND, res);
+
+	//3位
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "3rdImage.png");
+	resourcesMap_.emplace(SRC::RANK_THIRD, res);
+
+	//4位
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "4thImage.png");
+	resourcesMap_.emplace(SRC::RANK_FOURTH, res);
 }
 
 void ResourceManager::InitSelect()

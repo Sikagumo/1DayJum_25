@@ -40,15 +40,17 @@ void BlockController::Draw(void)
 			posX = OFFSET_X;
 			posY += IMAGE_SIZE_Y;
 		}
+		posY += SPACE_Y;
 	}
 }
 
 
 void BlockController::SetBlockShape(void)
 {
+	
 	/*　ブロックの形状割り当て　*/
 
-	std::array<std::array<int, BLOCK_X>, BLOCK_Y> arrayInit = {};
+	std::array<std::array<bool, BLOCK_Y>, BLOCK_X> arrayInit = {};
 	for (int y = 0; y < BLOCK_Y; ++y)
 	{
 		for (int x = 0; x < BLOCK_X; ++x)

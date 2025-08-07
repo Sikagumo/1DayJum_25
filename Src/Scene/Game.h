@@ -1,5 +1,7 @@
 #pragma once
 #include "SceneBase.h"
+class BlockController;
+
 class Game :
     public SceneBase
 {
@@ -11,5 +13,9 @@ public:
     void Update(void)override;
     void Draw(void)override;
     void Release(void)override;
+
+private:
+
+    BlockController* blockController_;
 };
 

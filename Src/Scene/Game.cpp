@@ -2,7 +2,7 @@
 #include"../Manager/Generic/SceneManager.h"
 #include"../Manager/GameSystem/CharacterManager.h"
 #include "Game.h"
-#include "../Object/Block/BlockController.h"
+#include "../Object/Block/RandomBlock.h"
 
 Game::Game(void)
 {
@@ -20,7 +20,8 @@ void Game::Init(void)
 	charaMng_->Init(SceneManager::GetInstance().GetPlayerNum());	//引数はSceneManagerよりユーザ人数を取得(マージ後)
 
 	//ブロック生成
-	blockController_ = std::make_unique<BlockController>();
+	randomBlockCntl_ = std::make_unique<RandomBlock>();
+	randomBlockCntl_->Init();
 
 	update_ = &Game::UpdateStartTurnFaze;
 }
@@ -33,7 +34,6 @@ void Game::Update(void)
 
 void Game::Draw(void)
 {
-	blockController_->Draw();
 	DrawString(0, 0, "GameScene", 0xffffff, false);
 
 	//キャラクター

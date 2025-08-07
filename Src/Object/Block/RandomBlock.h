@@ -10,15 +10,15 @@ public:
 	{
 		NONE = -1,
 
-		SQUARE_UP,   // 2x2éläpè„
-		SQUARE_DOWN, // 2Å~2éläpâ∫
-		WID_UP,   // â°í∑è„
+		SQUARE_TOP,   // 2x2éläpè„
+		SQUARE_BTM, // 2Å~2éläpâ∫
+		WID_TOP,   // â°í∑è„
 		WID_MID,  // â°í∑íÜ
-		WID_DOWN, // â°í∑â∫
+		WID_BTM, // â°í∑â∫
 
-		L, // Lå^
-		L_MIN_UP, // Lå^è¨è„
-		L_MIN_DOWN, // Lå^è¨â∫
+		L_BIG, // Lå^
+		L_SML_TOP, // Lå^è¨è„
+		L_SML_BTM, // Lå^è¨â∫
 
 		CONCAVE,// âöå^
 
@@ -30,7 +30,11 @@ public:
 
 	void Init(void);
 
+	AddBlock GetRandomShape(void);
+
 private:
+	void CreateShape(void);
+
 	std::map<SELECT_TYPE, AddBlock> blockShapes_;
 };
 

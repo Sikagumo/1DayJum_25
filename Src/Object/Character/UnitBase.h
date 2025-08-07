@@ -5,6 +5,7 @@
 
 class CharacterBase;
 class SelectLogicBase;
+class Lane;
 
 class UnitBase
 {
@@ -40,6 +41,7 @@ protected:
 
 	std::unique_ptr<CharacterBase>character_;	//キャラクター
 	std::unique_ptr<SelectLogicBase>logic_;		//ブロック選択ロジック
+	std::unique_ptr<Lane>blockLane_;		//ブロック選択ロジック
 
 	//自身の足場レーン(中川原制作中)
 

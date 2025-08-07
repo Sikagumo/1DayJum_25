@@ -36,5 +36,60 @@ private:
 	void CreateShape(void);
 
 	std::map<SELECT_TYPE, AddBlock> blockShapes_;
+
+public:
+	static constexpr bool SQUARE_TOP[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
+			{1,1,0},
+			{1,1,0},
+			{0,0,0}
+	};
+
+	static constexpr bool SQUARE_BTM[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
+			{0,0,0},
+			{1,1,0},
+			{1,1,0}
+	};
+
+	static constexpr bool WID_TOP[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
+			{1,1,1},
+			{0,0,0},
+			{0,0,0}
+	};
+
+	static constexpr bool WID_MID[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
+			{0,0,0},
+			{1,1,1},
+			{0,0,0}
+	};
+
+	static constexpr bool WID_BTM[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
+			{0,0,0},
+			{0,0,0},
+			{1,1,1}
+	};
+
+	static constexpr bool L_BIG[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
+			{1,0,0},
+			{1,0,0},
+			{1,1,0}
+	};
+
+	static constexpr bool L_SML_TOP[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
+			{1,0,0},
+			{1,1,0},
+			{0,0,0}
+	};
+
+	static constexpr bool L_SML_BTM[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
+			{0,0,0},
+			{1,0,0},
+			{1,1,0}
+	};
+
+	static constexpr bool CONCAVE[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
+			{1,1,0},
+			{1,0,0},
+			{1,1,0}
+	};
 };
 

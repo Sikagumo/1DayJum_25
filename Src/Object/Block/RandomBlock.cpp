@@ -1,62 +1,6 @@
 #include<DxLib.h>
 #include "RandomBlock.h"
 
-namespace {
-	const bool SQUARE_TOP[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
-			{1,1,0},
-			{1,1,0},
-			{0,0,0}
-	};
-
-	const bool SQUARE_BTM[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
-			{0,0,0},
-			{1,1,0},
-			{1,1,0}
-	};
-
-	const bool WID_TOP[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
-			{1,1,1},
-			{0,0,0},
-			{0,0,0}
-	};
-
-	const bool WID_MID[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
-			{0,0,0},
-			{1,1,1},
-			{0,0,0}
-	};
-
-	const bool WID_BTM[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
-			{0,0,0},
-			{0,0,0},
-			{1,1,1}
-	};
-
-	const bool L_BIG[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
-			{1,0,0},
-			{1,0,0},
-			{1,1,0}
-	};
-
-	const bool L_SML_TOP[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
-			{1,0,0},
-			{1,1,0},
-			{0,0,0}
-	};
-
-	const bool L_SML_BTM[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
-			{0,0,0},
-			{1,0,0},
-			{1,1,0}
-	};
-
-	const bool CONCAVE[ADD_BLOCK_SIZE_X][ADD_BLOCK_SIZE_Y] = {
-			{1,1,0},
-			{1,0,0},
-			{1,1,0}
-	};
-}
-
 
 void RandomBlock::Init(void)
 {

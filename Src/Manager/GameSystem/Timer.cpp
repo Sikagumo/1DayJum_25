@@ -44,7 +44,7 @@ void Timer::Draw(void)const
 
     //êîéöÇÃê›íË
     ui.SetUIInfo("Numbers"
-        , VGet(Application::SCREEN_SIZE_X / 2 + ResourceManager::NUMBERS_SIZE / 2 * NUMBERS_RATE, TIMER_BACK_SIZE_Y / 2,0.0f)
+        , VGet(Application::SCREEN_SIZE_X / 2 + NUMBERS_LOCAL_POS_X + ResourceManager::NUMBERS_SIZE / 2 * NUMBERS_RATE, TIMER_BACK_SIZE_Y / 2,0.0f)
         , NUMBERS_RATE);
     ui.SetImage("Numbers", res.Load(ResourceManager::SRC::NUMBERS).handleIds_[(TIME_LIMIT.second - static_cast<int>(cnt_)) % (ResourceManager::NUMBERS_NUM_X * ResourceManager::NUMBERS_NUM_Y)]);
 
@@ -53,7 +53,7 @@ void Timer::Draw(void)const
 
     //êîéöÇÃê›íË
     ui.SetUIInfo("Numbers"
-        , VGet(Application::SCREEN_SIZE_X / 2 - ResourceManager::NUMBERS_SIZE / 2 * NUMBERS_RATE, TIMER_BACK_SIZE_Y / 2,0.0f)
+        , VGet(Application::SCREEN_SIZE_X / 2 + NUMBERS_LOCAL_POS_X - ResourceManager::NUMBERS_SIZE / 2 * NUMBERS_RATE, TIMER_BACK_SIZE_Y / 2,0.0f)
         , NUMBERS_RATE);
     ui.SetImage("Numbers", res.Load(ResourceManager::SRC::NUMBERS).handleIds_[(TIME_LIMIT.second - static_cast<int>(cnt_)) / (ResourceManager::NUMBERS_NUM_X * ResourceManager::NUMBERS_NUM_Y)]);
 

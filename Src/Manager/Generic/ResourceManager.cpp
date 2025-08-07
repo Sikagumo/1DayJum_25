@@ -61,11 +61,11 @@ void ResourceManager::InitGame(void)
 	Resource res;
 
 	//タイマー背景
-	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "TimerBack.png");
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Ui/Timer.png");
 	resourcesMap_.emplace(SRC::TIMER_BACK, res);
 	
 	//数字画像
-	res = Resource(Resource::TYPE::IMGS, Application::PATH_IMAGE + "Numbers.png", NUMBERS_NUM_X, NUMBERS_NUM_Y, NUMBERS_SIZE, NUMBERS_SIZE);
+	res = Resource(Resource::TYPE::IMGS, Application::PATH_IMAGE + "Numbers2.png", NUMBERS_NUM_X, NUMBERS_NUM_Y, NUMBERS_SIZE, NUMBERS_SIZE);
 	resourcesMap_.emplace(SRC::NUMBERS, res);
 }
 

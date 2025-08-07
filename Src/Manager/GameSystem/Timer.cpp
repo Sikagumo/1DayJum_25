@@ -31,6 +31,9 @@ void Timer::Update(void)
     {
         //カウンタ
         cnt_ += scnMng.GetDeltaTime();
+
+        //タイマー
+        //SoundManager::GetInstance().Play("Timer");
     }
 }
 

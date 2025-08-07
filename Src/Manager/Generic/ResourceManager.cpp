@@ -60,22 +60,32 @@ void ResourceManager::InitGame(void)
 {
 	Resource res;
 
+	//タイマー背景
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "TimerBack.png");
+	resourcesMap_.emplace(SRC::TIMER_BACK, res);
 	
+	//数字画像
+	res = Resource(Resource::TYPE::IMGS, Application::PATH_IMAGE + "Numbers.png", NUMBERS_NUM_X, NUMBERS_NUM_Y, NUMBERS_SIZE, NUMBERS_SIZE);
+	resourcesMap_.emplace(SRC::TITLE_BUTTON, res);
 }
 
 void ResourceManager::InitClear(void)
 {
 	Resource res;
 
+	//タイトル遷移ボタン
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "TitleButton.png");
 	resourcesMap_.emplace(SRC::TITLE_BUTTON, res);
 
+	//リトライボタン
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "RetryButton.png");
 	resourcesMap_.emplace(SRC::RETRY_BUTTON, res);
 
+	//セレクト遷移ボタン
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "SelectButton.png");
 	resourcesMap_.emplace(SRC::SELECT_BUTTON, res);
 
+	//右矢印
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "ArrowRight.png");
 	resourcesMap_.emplace(SRC::ARROW_RIGHT, res);
 }
@@ -84,15 +94,19 @@ void ResourceManager::InitSelect()
 {
 	Resource res;
 
+	//プレイヤー1ボタン
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "player_button_1p.png");
 	resourcesMap_.emplace(SRC::PLAYER_BUTTON_1, res);
 
+	//プレイヤー2ボタン
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "player_button_2p.png");
 	resourcesMap_.emplace(SRC::PLAYER_BUTTON_2, res);
 
+	//プレイヤー3ボタン
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "player_button_3p.png");
 	resourcesMap_.emplace(SRC::PLAYER_BUTTON_3, res);
 
+	//プレイヤー4ボタン
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "player_button_4p.png");
 	resourcesMap_.emplace(SRC::PLAYER_BUTTON_4, res);
 }

@@ -9,6 +9,11 @@ class ResourceManager
 
 public:
 
+	//数字画像用定数
+	static constexpr int NUMBERS_NUM_X = 5;
+	static constexpr int NUMBERS_NUM_Y = 2;
+	static constexpr int NUMBERS_SIZE = 128;
+
 	// リソース名
 	enum class SRC
 	{
@@ -23,6 +28,8 @@ public:
 		PLAYER_BUTTON_3,
 		PLAYER_BUTTON_4,
 		STAGE_IMG,
+		TIMER_BACK,
+		NUMBERS,
 
 		//モデル
 		STAGE_MDL,

@@ -37,8 +37,27 @@ void CharacterManager::Init(const int _userNum)
 
 void CharacterManager::Update(void)
 {
-	for (auto& chara : characteres_) {
-		chara->Update();
+	for (int i = 0; i < CHARACTER_NUM; i++) {
+		characteres_[i]->Update();
+
+
+		//現在入力を受け付けているキャラクターの場合
+		if (i == selectPlayerNum_) {
+			//選択が終了したら
+			if (characteres_[i]->IsSelect()) {
+				//自身を選択可能状態を解除
+				characteres_[i]->ChangeSelectFlag(false);
+
+				//次のプレイヤーの選択を可能に
+				int nextPlayer = i + 1;
+				if (nextPlayer < CHARACTER_NUM) {
+					characteres_[nextPlayer]->ChangeSelectFlag(true);
+				}
+				else {
+					selectTurnEnd_ = true;
+				}
+			}
+		}
 	}
 }
 

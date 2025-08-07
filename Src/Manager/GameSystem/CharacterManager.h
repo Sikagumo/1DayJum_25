@@ -18,5 +18,8 @@ public:
 
 private:
 	std::unique_ptr<UnitBase>characteres_[CHARACTER_NUM];
+
+	int selectPlayerNum_;	//0~3
+	bool selectTurnEnd_;
 };
 

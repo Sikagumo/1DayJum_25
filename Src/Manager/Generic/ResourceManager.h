@@ -52,6 +52,11 @@ public:
 		PLAYER_THREE,
 		PLAYER_FOUR,
 
+		STAGE_IMG,
+
+		START_BLOCKS,
+		BLOCK_BASES,
+		SKY,
 
 		//モデル
 		STAGE_MDL,
@@ -63,6 +68,7 @@ public:
 
 		//SE
 		TIMER_SE,
+		SELECT_SE,
 
 		//エフェクト
 	};

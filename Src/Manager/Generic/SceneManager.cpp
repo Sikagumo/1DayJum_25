@@ -64,7 +64,7 @@ void SceneManager::Init(void)
 	Init3D();
 
 	// 初期シーンの設定
-	ChangeScene(std::make_shared<Select>());
+	ChangeScene(std::make_shared<Title>());
 
 	// メインスクリーン
 	mainScreen_ = MakeScreen(

@@ -48,12 +48,31 @@ void ResourceManager::InitTitle(void)
 	Resource res;
 
 	// タイトル
-	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Title2.png");
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "TitleLogo.png");
 	resourcesMap_.emplace(SRC::TITLE_LOGO, res);
 
 	// ステージ画像
-	//res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "StageImage.png");
-	//resourcesMap_.emplace(SRC::STAGE_IMG, res);
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "StageImage.png");
+	resourcesMap_.emplace(SRC::STAGE_IMG, res);
+
+	//ステージ画像（スタート地点）
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Block/StartBlocks.png");
+	resourcesMap_.emplace(SRC::START_BLOCKS, res);
+
+	//背景ブロックベース
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Block/BlockBases.png");
+	resourcesMap_.emplace(SRC::BLOCK_BASES, res);
+
+	//背景
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Sky.png");
+	resourcesMap_.emplace(SRC::SKY, res);
+	
+	//タイトルBGM
+	res = Resource(Resource::TYPE::SOUND, Application::PATH_SOUND + "Stanby.mp3");
+	resourcesMap_.emplace(SRC::TITLE_BGM, res);
+
+	res = Resource(Resource::TYPE::SOUND, Application::PATH_SOUND + "決定.mp3");
+	resourcesMap_.emplace(SRC::SELECT_SE, res);
 }
 
 void ResourceManager::InitGame(void)

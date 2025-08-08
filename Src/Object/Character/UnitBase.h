@@ -29,6 +29,10 @@ public:
 
 	void AddLane(const BlockBase::AddBlock _addBlock);
 
+	const bool IsGoal(void);
+
+	int GetReachableLaneX(void);
+
 protected:
 	void UpdateNomal(void);	//’Êí
 	void UpdateSelect(void);//‘I‘ğ

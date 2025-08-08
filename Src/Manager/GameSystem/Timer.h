@@ -14,7 +14,7 @@ public:
 	static constexpr Time TIME_LIMIT = { 0,10 };
 
 	//タイマー背景サイズ
-	static constexpr float TIMER_BACK_RATE = 1.5f;
+	static constexpr float TIMER_BACK_RATE = 1.2f;
 	static constexpr int TIMER_BACK_SIZE_X = static_cast<int>(128 * TIMER_BACK_RATE);
 	static constexpr int TIMER_BACK_SIZE_Y = static_cast <int>(64 * TIMER_BACK_RATE);
 
@@ -22,7 +22,7 @@ public:
 	static constexpr int NUM_CNT = 2;
 
 	//数字のサイズ
-	static constexpr float NUMBERS_RATE = 0.4f;
+	static constexpr float NUMBERS_RATE = 0.2f;
 
 	//数字の相対座標
 	static constexpr int NUMBERS_LOCAL_POS_X = 30;

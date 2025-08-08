@@ -112,6 +112,16 @@ void CharacterManager::SelectLane(const int _charaNum, const BlockBase::AddBlock
 	characteres_[_charaNum]->AddLane(_addBlock);
 }
 
+const bool CharacterManager::IsGoal(const int _charaNum)
+{
+	return characteres_[_charaNum]->IsGoal();
+}
+
+int CharacterManager::GetReachableLaneX(const int _charaNum)
+{
+	return characteres_[_charaNum]->GetReachableLaneX();
+}
+
 bool CharacterManager::FinishUpdateNomal(const int _charaNum) {
 	//ŠÖ”‚ÌNextState()‚Å‚Ì‚ÝŽŸ‚É‚¢‚­
 
@@ -143,6 +153,7 @@ bool CharacterManager::FinishUpdateSelect(const int _charaNum)
 
 				//‘I‘ðŒ ‚ð1l–Ú‚É•Ô‚µ‚Ä‚¨‚­
 				characteres_[0]->ChangeSelectFlag(true);
+				selectPlayerNum_ = 0;
 
 				return true;
 			}

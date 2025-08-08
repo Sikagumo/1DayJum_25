@@ -5,6 +5,7 @@
 #include"../Manager/Generic/SceneManager.h"
 #include"../Manager/GameSystem/CharacterManager.h"
 #include "Game.h"
+#include "GameClear.h"
 #include "../Object/Block/RandomBlock.h"
 
 Game::Game(void)
@@ -67,6 +68,7 @@ void Game::UpdateStartTurnFaze(void)
 
 	//選択肢の表示
 
+
 	//終了したら選択肢フェーズへ
 	update_ = &Game::UpdateSelectFaze;
 	charaMng_->NextState();
@@ -82,7 +84,17 @@ void Game::UpdateSelectFaze(void)
 
 		for (int i = 0; i < CharacterManager::CHARACTER_NUM; i++)
 		{
+			//レーン選択
 			charaMng_->SelectLane(i, randomBlockCntl_->GetSelectBlock(charaMng_->GetSelectNum(i)));
+
+			if (charaMng_->IsGoal(i))
+			{
+				//勝者を保存
+				SceneManager::GetInstance().SetWinner(i);
+
+				//クリアシーンに行く
+				SceneManager::GetInstance().JumpScene(std::make_shared<GameClear>());
+			}
 		}
 
 		//終了したら反映フェーズへ
@@ -101,4 +113,7 @@ void Game::UpdateMoveFaze(void)
 	//終了したらターン開始フェーズへ
 	update_ = &Game::UpdateStartTurnFaze;
 	charaMng_->NextState();
+
+	//配置しなおす
+	randomBlockCntl_->CreateSelect();
 }

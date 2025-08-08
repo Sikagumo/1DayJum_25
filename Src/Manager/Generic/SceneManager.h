@@ -85,6 +85,12 @@ public:
 	void SetPlayerNum(int _num);
 	const int GetPlayerNum(void)const { return playerNum_; }
 
+	//勝者のナンバー取得
+	const int GetWinnerNum(void) { return winnerCharaNum_; }
+
+	//勝者決め
+	void SetWinner(const int _charaNum) { winnerCharaNum_ = _charaNum; }
+
 private:
 
 	// 静的インスタンス
@@ -120,6 +126,9 @@ private:
 
 	//プレイヤー数
 	int playerNum_;
+
+	//勝者ナンバー
+	int winnerCharaNum_;
 	
 	// デフォルトコンストラクタをprivateにして、
 	// 外部から生成できない様にする

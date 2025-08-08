@@ -15,7 +15,8 @@ public:
 
 	void Init(void);
 
-private:
+protected:
 	int blockImg_;
+	int lavaImg_;
 };
 

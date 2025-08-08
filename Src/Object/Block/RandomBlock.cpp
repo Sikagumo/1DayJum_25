@@ -4,6 +4,7 @@
 
 void RandomBlock::Init(void)
 {
+	BlockBase::Init();
 	CreateShape();
 	drawStartPos_ = { 800.0f,80.0f,0.0f };
 }
@@ -14,16 +15,16 @@ void RandomBlock::Draw(void)
 	int diffY = BLOCK_SIZE_X * (ADD_BLOCK_SIZE_Y + 1);
 	int cnt = 0;
 
-	int color= 0xffffff;
+	int handle = -1;
 
 	for (auto& select : useBlocks_) {
 		for (int x = 0; x < ADD_BLOCK_SIZE_X; x++) {
 			for (int y = 0; y < ADD_BLOCK_SIZE_Y; y++) {
 				//ƒuƒƒbƒN‚ª‚ ‚é‚È‚çÔ‚É
-				color = 0xffffff;
-				if (select.info[y][x] == true)color = 0xff0000;
+				handle = lavaImg_;
+				if (select.info[y][x] == true)handle = blockImg_;
 
-				DrawCircle(posX, posY, 4, color);
+				DrawRotaGraph(posX, posY, 1.0, 0.0, handle, true);
 				posY += BLOCK_SIZE_Y;
 			}
 			posY = drawStartPos_.y + diffY * cnt;
@@ -37,7 +38,7 @@ void RandomBlock::Draw(void)
 
 BlockBase::AddBlock RandomBlock::GetRandomShape(void)
 {
-	SELECT_TYPE createType = static_cast<SELECT_TYPE>(GetRand(static_cast<int>(SELECT_TYPE::MAX)));
+	SELECT_TYPE createType = static_cast<SELECT_TYPE>(GetRand(static_cast<int>(SELECT_TYPE::MAX) - 1));
 	return blockShapes_[createType];
 }
 

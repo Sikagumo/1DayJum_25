@@ -31,6 +31,9 @@ private:
     int retryImg_;
     int arrowImg_;
 
+    std::vector<int>playerNumImg_;
+    int winImg_;
+
     int arrowPosX_;
     int arrowPosY_;
 

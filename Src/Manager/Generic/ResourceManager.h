@@ -47,6 +47,11 @@ public:
 		BACK_LAVA,			//—nŠâ”wŒi
 		BACK_SKY,			//‹ó”wŒi
 
+		PLAYER_ONE,
+		PLAYER_TWO,
+		PLAYER_THREE,
+		PLAYER_FOUR,
+
 
 		//ƒ‚ƒfƒ‹
 		STAGE_MDL,

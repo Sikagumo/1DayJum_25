@@ -160,6 +160,26 @@ void ResourceManager::InitClear(void)
 	//4ˆÊ
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "4thImage.png");
 	resourcesMap_.emplace(SRC::RANK_FOURTH, res);
+
+	//WIN
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Wins.png");
+	resourcesMap_.emplace(SRC::WIN_IMG, res);
+
+	//1ˆÊ
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Player1.png");
+	resourcesMap_.emplace(SRC::PLAYER_ONE, res);
+
+	//2ˆÊ
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Player2.png");
+	resourcesMap_.emplace(SRC::PLAYER_TWO, res);
+
+	//3ˆÊ
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Player3.png");
+	resourcesMap_.emplace(SRC::PLAYER_THREE, res);
+
+	//4ˆÊ
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "UI/Player4.png");
+	resourcesMap_.emplace(SRC::PLAYER_FOUR, res);
 }
 
 void ResourceManager::InitSelect()

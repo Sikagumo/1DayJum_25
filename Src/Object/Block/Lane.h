@@ -25,11 +25,18 @@ public:
 	bool AddBlockToLane(const AddBlock _addBlock);
 
 	VECTOR GetStartPos(void)const { return laneStartPos_; }
+
+	//ゴールの判定
+	const bool IsGoal(void);
+
+	//横のレーン数を取得
+	int GetReachableLaneX(void) { return reachableLaneX_; }
+
 private:
 	bool IsAdd(const AddBlock _addBlock);
 
 	bool lane_[LANE_SIZE_X][LANE_SIZE_Y];	//レーン全体
-	int reachableLaneX;	//現在の横方向最大値
+	int reachableLaneX_;	//現在の横方向最大値
 
 	VECTOR laneStartPos_;	//レーン開始位置
 };

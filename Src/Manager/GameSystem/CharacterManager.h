@@ -28,6 +28,8 @@ public:
 
 	const int GetSelectNum(const int _charaNum)const;
 	void SelectLane(const int _charaNum, const BlockBase::AddBlock _addBlock);
+	const bool IsGoal(const int _charaNum);
+	int GetReachableLaneX(const int _charaNum);
 
 private:
 	//Šeíó‘Ô‚Å‚ÌXVŠ®—¹‚Ì”»’èˆ—

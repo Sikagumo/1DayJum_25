@@ -78,6 +78,19 @@ void UnitBase::ChangeUpdateState(const CharacterManager::CHRACTER_STATE& _state)
 void UnitBase::AddLane(const BlockBase::AddBlock _addBlock)
 {
 	blockLane_->AddBlockToLane(_addBlock);
+
+	//‘I‘ðó‘Ô‚ð‰ðœ
+	ResetSelect();
+}
+
+const bool UnitBase::IsGoal(void)
+{
+	return blockLane_->IsGoal();
+}
+
+int UnitBase::GetReachableLaneX(void)
+{
+	return blockLane_->GetReachableLaneX();
 }
 
 void UnitBase::UpdateNomal(void)

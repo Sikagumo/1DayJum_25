@@ -57,7 +57,7 @@ void GameClear::Update(void)
 void GameClear::Draw(void)
 {
 	DrawString(0, 0, "GameClear", 0xffffff, false);
-	DrawFormatString(100, 100, 0xffffff, "%d", next_);
+	//DrawFormatString(100, 100, 0xffffff, "%d", next_);
 
 	//DrawBox(0, 0, Application::SCREEN_SIZE_X, Application::SCREEN_SIZE_Y, 0xffffff, 1);
 
@@ -65,7 +65,7 @@ void GameClear::Draw(void)
 	DrawRotaGraph(Application::SCREEN_SIZE_X/2, 400, 0.2, 0, selectImg_, 1);
 	DrawRotaGraph(Application::SCREEN_SIZE_X/2, 500, 0.2, 0, titleImg_, 1);
 
-	DrawRotaGraph(Application::SCREEN_SIZE_X / 2 - 200, 100, 5.0, 0.0, playerNumImg_[SceneManager::GetInstance().GetWinnerNum() - 1],true);
+	DrawRotaGraph(Application::SCREEN_SIZE_X / 2 - 200, 100, 5.0, 0.0, playerNumImg_[SceneManager::GetInstance().GetWinnerNum()],true);
 	DrawRotaGraph(Application::SCREEN_SIZE_X / 2 + 200, 100, 2.5, 0.0, winImg_,true);
 
 	DrawRotaGraph(arrowPosX_, arrowPosY_, 0.1, 0, arrowImg_, 1);

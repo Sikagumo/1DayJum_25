@@ -31,6 +31,10 @@ public:
 		TIMER_BACK,
 		NUMBERS,
 
+		START_BLOCKS,
+		BLOCK_BASES,
+		SKY,
+
 		//ƒ‚ƒfƒ‹
 		STAGE_MDL,
 

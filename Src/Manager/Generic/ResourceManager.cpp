@@ -54,6 +54,18 @@ void ResourceManager::InitTitle(void)
 	// ステージ画像
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "StageImage.png");
 	resourcesMap_.emplace(SRC::STAGE_IMG, res);
+
+	//ステージ画像（スタート地点）
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Block/StartBlocks.png");
+	resourcesMap_.emplace(SRC::START_BLOCKS, res);
+
+	//背景ブロックベース
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Block/BlockBases.png");
+	resourcesMap_.emplace(SRC::BLOCK_BASES, res);
+
+	//背景
+	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Sky.png");
+	resourcesMap_.emplace(SRC::SKY, res);
 }
 
 void ResourceManager::InitGame(void)

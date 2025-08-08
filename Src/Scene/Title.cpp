@@ -5,6 +5,7 @@
 #include"../Manager/Generic/InputManager.h"
 #include"../Manager/Generic/ResourceManager.h"
 #include"../Manager/Decoration/UIManager2d.h"
+#include"../Manager/Decoration/SoundManager.h"
 
 #include"Select.h"
 #include "Title.h"
@@ -20,7 +21,7 @@ Title::~Title(void)
 void Title::Init(void)
 {
 	auto& uiM = UIManager2d::GetInstance();
-
+	auto& soundM = SoundManager::GetInstance();
 	auto& resM = ResourceManager::GetInstance();
 	resM.Init(SceneManager::SCENE_ID::TITLE);
 
@@ -35,14 +36,22 @@ void Title::Init(void)
 	uiM.SetPos("タイトルロゴ", { Application::SCREEN_SIZE_X / 2,Application::SCREEN_SIZE_Y / 2,0 });
 	uiM.SetUIDirectionPram("タイトルロゴ", UIManager2d::UI_DIRECTION_GROUP::ZOOM, 0.01, 1.2, 0.3);
 
-
 	backDrawPos_[0] = { 0,0 };
 	backDrawPos_[1] = { Application::SCREEN_SIZE_X,0 };
+
+	//BGM:SE
+	soundM.Add(SoundManager::TYPE::BGM, "タイトルBGM", resM.Load(ResourceManager::SRC::TITLE_BGM).handleId_);
+	soundM.Add(SoundManager::TYPE::SE, "決定", resM.Load(ResourceManager::SRC::SELECT_SE).handleId_);
+
+	soundM.Play("タイトルBGM");
+
 }
 
 void Title::Update(void)
 {
 	auto& uiM = UIManager2d::GetInstance();
+	auto& soundM = SoundManager::GetInstance();
+
 	uiM.Update("タイトルロゴ");
 
 	//for (int i = 0; i < 2; i++)
@@ -56,6 +65,8 @@ void Title::Update(void)
 	//シーン遷移
 	if (InputManager::GetInstance().IsTrigerrDown("action")) {
 		SceneManager::GetInstance().JumpScene(std::make_shared<Select>());
+		soundM.Play("決定");
+		soundM.Stop("タイトルBGM");
 	}
 }
 
@@ -71,25 +82,18 @@ void Title::Draw(void)
 	drawPos_[1] = { 0,centerPosY };
 	drawPos_[2] = { 0,centerPosY + Application::SCREEN_SIZE_Y / 3 };
 
-
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < LEN; i++)
 	{
 		for (int j = 0; j < 15; j++)
 		{
-			DrawRotaGraph(j * 96, drawPos_[i].y, 1, 0, blockBaseImg_, true);
+			DrawRotaGraph(j * BLOCK_BASE_SIZE, drawPos_[i].y, 1, 0, blockBaseImg_, true);
 		}
 	DrawRotaGraph(0, drawPos_[i].y, 1, 0, startBlockImg_, true);
 	DrawRotaGraph(Application::SCREEN_SIZE_X, drawPos_[i].y, 1, 0, startBlockImg_, true);
 	}
-
-
-
-
 	uiM.Draw("タイトルロゴ");
 	//DrawRotaGraph(centerPosX, centerPosY, 0.7, 0, titleLogo_, true);
-
-	DrawString(0, 0, "TitleScene", 0xffffff, false);
-
+	//DrawString(0, 0, "TitleScene", 0xffffff, false);
 }
 
 void Title::Release(void)

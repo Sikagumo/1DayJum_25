@@ -45,6 +45,7 @@ public:
 
 		//SE
 		TIMER_SE,
+		SELECT_SE,
 
 		//エフェクト
 	};

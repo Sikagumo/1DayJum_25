@@ -66,6 +66,13 @@ void ResourceManager::InitTitle(void)
 	//”wŒi
 	res = Resource(Resource::TYPE::IMG, Application::PATH_IMAGE + "Sky.png");
 	resourcesMap_.emplace(SRC::SKY, res);
+	
+	//ƒ^ƒCƒgƒ‹BGM
+	res = Resource(Resource::TYPE::SOUND, Application::PATH_SOUND + "Stanby.mp3");
+	resourcesMap_.emplace(SRC::TITLE_BGM, res);
+
+	res = Resource(Resource::TYPE::SOUND, Application::PATH_SOUND + "Œˆ’è.mp3");
+	resourcesMap_.emplace(SRC::SELECT_SE, res);
 }
 
 void ResourceManager::InitGame(void)

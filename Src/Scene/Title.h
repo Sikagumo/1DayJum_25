@@ -7,6 +7,7 @@ class Title :
 {
 public:
     static constexpr int LEN = 3;
+    static constexpr int BLOCK_BASE_SIZE = 96;
 
     Title(void);
     ~Title(void)override;

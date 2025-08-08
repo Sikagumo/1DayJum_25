@@ -100,4 +100,5 @@ void Game::UpdateMoveFaze(void)
 
 	//終了したらターン開始フェーズへ
 	update_ = &Game::UpdateStartTurnFaze;
+	charaMng_->NextState();
 }

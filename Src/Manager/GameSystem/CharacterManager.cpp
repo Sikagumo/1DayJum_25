@@ -140,6 +140,10 @@ bool CharacterManager::FinishUpdateSelect(const int _charaNum)
 				//次は反映の更新なので終了処理をそちらに写す
 
 				isFinishUpdate_ = &CharacterManager::FinishUpdateEffect;
+
+				//選択権を1人目に返しておく
+				characteres_[0]->ChangeSelectFlag(true);
+
 				return true;
 			}
 		}
